@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TipoMesa index{% endblock %}
+
+{% block body %}
+    <h1>TipoMesa index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Ancho</th>
+                <th>Largo</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tipo_mesa in tipo_mesas %}
+            <tr>
+                <td>{{ tipo_mesa.id }}</td>
+                <td>{{ tipo_mesa.ancho }}</td>
+                <td>{{ tipo_mesa.largo }}</td>
+                <td>
+                    <a href="{{ path('app_tipo_mesa_show', {'id': tipo_mesa.id}) }}">show</a>
+                    <a href="{{ path('app_tipo_mesa_edit', {'id': tipo_mesa.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_tipo_mesa_new') }}">Create new</a>
+{% endblock %}

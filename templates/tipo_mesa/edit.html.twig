@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit TipoMesa{% endblock %}
+
+{% block body %}
+    <h1>Edit TipoMesa</h1>
+
+    {{ include('tipo_mesa/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_tipo_mesa_index') }}">back to list</a>
+
+    {{ include('tipo_mesa/_delete_form.html.twig') }}
+{% endblock %}
