@@ -1,0 +1,8 @@
+
+<div class="contenido" [style.display]="elementoVisible ? 'block' : 'none'">
+@if(disponible){ 
+    <div id="{{id}}" class="tipo{{tipomesa}} verde" (click)="irAFormulario()" ></div>    
+}@else{ 
+      <div id="{{id}}" class="tipo{{tipomesa}} rojo" (click)="irAFormulario()"></div>
+}
+</div>
