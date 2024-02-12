@@ -19,6 +19,7 @@ class MesaController extends AbstractController
     {
         return $this->render('mesa/index.html.twig', [
             'mesas' => $mesaRepository->findAll(),
+            'mesatam'=>$mesaRepository->mesasTamanio(3)
         ]);
     }
 

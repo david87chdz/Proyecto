@@ -19,7 +19,18 @@ class ReservaController extends AbstractController
     {
         return $this->render('reserva/index.html.twig', [
             'reservas' => $reservaRepository->findAll(),
-            'reservasPropias' =>$reservaRepository->reservasUsuarios('Miguel')
+            'reservasPropias' =>$reservaRepository->reservasUsuarios('Miguel'),
+            'reservasAdmin' =>$reservaRepository->reservasAdmin()
+        ]);
+    }
+
+    
+    #[Route('/listado', name: 'app_reserva_listado', methods: ['GET'])]
+    public function listado(ReservaRepository $reservaRepository): Response
+    {
+        return $this->render('reserva/listado.html.twig', [
+            'reservasPropias' =>$reservaRepository->reservasUsuarios('Miguel'),
+            'reservasAdmin' =>$reservaRepository->reservasAdmin()
         ]);
     }
 

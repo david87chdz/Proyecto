@@ -35,8 +35,18 @@
         </tbody>
     </table>
 
+    <h3>Reservas por usuario</h3>
+
     <ul>
     {% for reserva in reservasPropias %}
+        <li>{{reserva.id}}</li>
+    {% endfor %}
+    </ul>
+    
+    <h3>Reservas de administradores</h3>
+
+    <ul>
+    {% for reserva in reservasAdmin %}
         <li>{{reserva.id}}</li>
     {% endfor %}
     </ul>

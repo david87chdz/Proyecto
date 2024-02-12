@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reserva index{% endblock %}
+
+{% block body %}
+    
+    <h3>Reservas por usuario</h3>
+
+    <ul>
+    {% for reserva in reservasPropias %}
+        <li>{{reserva.id}}</li>
+    {% endfor %}
+    </ul>
+    
+    <h3>Reservas de administradores</h3>
+
+    <ul>
+    {% for reserva in reservasAdmin %}
+        <li>{{reserva.id}}</li>
+    {% endfor %}
+    </ul>
+
+    <a href="{{ path('app_reserva_new') }}">Create new</a>
+{% endblock %}

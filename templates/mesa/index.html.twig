@@ -31,5 +31,12 @@
         </tbody>
     </table>
 
+    <h3>Mesas por tamaño</h3>
+    <ul>
+    {% for mesa in mesatam %}
+        <li>{{ mesa.id}}</td>
+    {% endfor %}
+    </ul>
+    
     <a href="{{ path('app_mesa_new') }}">Create new</a>
 {% endblock %}

@@ -3,8 +3,11 @@
 namespace App\Repository;
 
 use App\Entity\Mesa;
+use App\Entity\TipoMesa;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+/*Lo importamos para entityManager*/
+use Doctrine\ORM\EntityManagerInterface;
 
 /**
  * @extends ServiceEntityRepository<Mesa>
@@ -16,14 +19,34 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class MesaRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
+    //Añadimos EntityManagerInterface para poder acceder a las otras entidades 
+    public function __construct(ManagerRegistry $registry, EntityManagerInterface $entityManager)
     {
         parent::__construct($registry, Mesa::class);
+        $this->entityManager = $entityManager;
     }
 
 
+     /**
+     * Función que devuelve las resermesas de un tamaño o mayores
+     * fecha
+     * @return array Returns an array of Reserva objects
+     */
+    public function mesasTamanio($value): array
+    {
+        $tipoMesa = $this->entityManager->getRepository(TipoMesa::class)->find($value);
+        $area=$tipoMesa->getAncho()*$tipoMesa->getLargo();
+        
+        return $this->createQueryBuilder('m')
+            ->join('m.tipomesa', 't')
+            ->where('t.ancho * t.largo >= :area')
+            ->setParameter('area', $area)
+            ->getQuery()
+            ->getResult()
+        ;
 
-    
+    }
+
 
 
 //    /**
