@@ -1,34 +1,28 @@
-
 <body>
+<header>
+    <div class="container-fluid  cabecera fixed-top">
+      <div class="row justify-content-between">
+          <div class="columna col-3 mt-1">
+          <img class="img-fluid float-start" id="logospain" src="images/spainskills.jpg" alt="Logo de Spain Skills">
+          </div>
+          <div class="columna col-3 mt-1 mx-3">
+              <img class="img-fluid float-end" id="logodrag" src="images/drag.png"  alt="Logo del proyecto DragonSkills">
+          </div>
+      </div>
+      <div class="row text-contenidoreservacenter mb-3">
+          <h1>Dragon Skills</h1>
+          
+      </div>
+      <div class="row">
+        <div class="col-3">
+            <button (click)="volverAtras()">Volver Atrás</button>
+        </div>
+      </div>
+      </div>
+  </header>
 <main>
 <div class="contenidoreserva">
-  <button type="submit" class="login-button" (click)="insertarJuego()">Enviar</button>
-  <div class="login-container">
-    <p>{{idmesa}}</p>
-      <p>{{idusuario}}</p>
-      <form [formGroup]="formReserva" (ngSubmit)="volverAtras()">
-        <p>Mesa:
-          <input type="text" formControlName="mesa" [(ngModel)]="idmesa">
-        </p>
-        <p>Usuario:
-          <input type="text" formControlName="usuario" value="{{idusuario}}" >
-        </p>
-        <p>
-          <select id="juego" name="juego">
-            @for(juego of juegos; track juego.id){
-              <option value="{{juego.id}}">{{juego.nombre}}</option>
-            }
-          </select>
-        </p>
-        <p>
-          <!-- <input type="number" min="{{this.juego.min_jug}}" max="max_jug"> -->
-        </p>
-
-        <p>
-          <input type="number" value="">
-        </p>
-        <p><button type="submit">Confirmar</button></p>
-      </form>
+    <div class="login-container">
       <h1>Realizar una reserva</h1>
       <form class="login-form">
           <div>
@@ -106,16 +100,15 @@
               <option value="23:00">23:00</option>
             </select>
           </div>
-          
+          <button type="submit" class="login-button">Enviar</button>
         </form>
       </div>
-      
     </div>
    
 </main>
-    <!-- <footer>
+    <footer>
         <h3>Miguel Cuevas y David Cerezo</h3>
         <p>&copy; DragonSkills - Todos los derechos reservados
-    </footer> -->
+    </footer>
 
 </body>

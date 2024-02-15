@@ -1,0 +1,9 @@
+
+
+@if(disponible){ 
+    <a routerLink="/formulario{{id}}" id="{{id}}" class="tipo{{tipomesa}} verde"></a>    
+}@else{ 
+      <div id="{{id}}" class="tipo{{tipomesa}} rojo" (click)="irAFormulario()"></div>
+}
+
+

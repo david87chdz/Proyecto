@@ -18,6 +18,7 @@ export class FormularioComponent {
   juegos: any=[];
 
   
+  
   formReserva = new FormGroup({
     mesa: new FormControl(this.idmesa),
     usuario: new FormControl(this.idusuario)
@@ -41,6 +42,28 @@ export class FormularioComponent {
   //console.log(this.juegos);
   volverAtras() {
     this.router.navigate(['/mesa']);
+  }
+
+  //Prueba
+  nuevoJuego: any = {
+    nombre: 'Mara',
+    min_jug: 2,
+    max_jug: 4,
+    // Añaadir el resto ¿Como meter los campos que son objetos?
+  };
+
+  insertarJuego(): void {
+    this.juegosService.insertarJuego(this.nuevoJuego)
+    console.log(this.nuevoJuego)
+    /*  .subscribe(
+        response => {
+          console.log("Juego insertado correctamente:", response);
+          
+        },
+        error => {
+          console.error("Error al insertar juego:", error);
+        }
+      ); */
   }
 
 }
