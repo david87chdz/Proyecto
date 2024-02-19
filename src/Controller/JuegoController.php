@@ -25,6 +25,36 @@ class JuegoController extends AbstractController
         ]);
     }
 
+    #[Route('/insertarJuego', name: 'insertarJuego', methods: ['POST'])]
+    public function insertarJuego(Request $request, EntityManagerInterface $entityManager): Response
+    {
+        $data = json_decode($request->getContent(), true);
+
+        // Crear una instancia de Juego
+        $nuevoJuego = new Juego();
+        $nuevoJuego->setNombre($data['nombre']);
+        $nuevoJuego->setMinJug($data['min_jug']);
+        $nuevoJuego->setMaxJug($data['max_jug']);
+        
+        // Resto de campos que locura con los objetos
+
+        
+        //$entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($nuevoJuego);
+        $entityManager->flush();
+
+
+        $responseData = [
+            'mensaje' => 'Juego insertado correctamente'
+        ];
+        
+        $jsonResponse = json_encode($responseData);
+        
+        $response = new Response($jsonResponse, Response::HTTP_CREATED);
+        $response->headers->set('Content-Type', 'application/json');
+        
+        return $response;
+    }
 
     #[Route('/getJuegos', name: 'getJuegos', methods: ['GET'])]
     public function getTodas(JuegoRepository $juegoRepository): Response
@@ -107,4 +137,8 @@ class JuegoController extends AbstractController
 
         return $this->redirectToRoute('app_juego_index', [], Response::HTTP_SEE_OTHER);
     }
+
+
+    
+
 }
