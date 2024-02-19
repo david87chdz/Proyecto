@@ -24,6 +24,16 @@ class ReservaController extends AbstractController
         ]);
     }
 
+    
+    #[Route('/listado', name: 'app_reserva_listado', methods: ['GET'])]
+    public function listado(ReservaRepository $reservaRepository): Response
+    {
+        return $this->render('reserva/listado.html.twig', [
+            'reservasPropias' =>$reservaRepository->reservasUsuarios('Miguel'),
+            'reservasAdmin' =>$reservaRepository->reservasAdmin()
+        ]);
+    }
+
     #[Route('/new', name: 'app_reserva_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
