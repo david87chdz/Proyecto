@@ -1,0 +1,21 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class JuegosService {
+
+  constructor(private http: HttpClient) { }
+
+  retornar() {
+    return this.http.get("http://127.0.0.1:8000/juego/getJuegos");
+  } 
+
+  insertarJuego(juego: any) {
+    let jsonData = JSON.stringify(juego);
+    console.log(jsonData)
+    return this.http.post("http://127.0.0.1:8000/juego/insertarJuego", jsonData);
+    
+  }
+}

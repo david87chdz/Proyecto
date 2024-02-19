@@ -10,6 +10,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+//Para los json
+use Symfony\Component\HttpFoundation\JsonResponse;
+
 
 #[Route('/juego')]
 class JuegoController extends AbstractController
@@ -20,6 +23,32 @@ class JuegoController extends AbstractController
         return $this->render('juego/index.html.twig', [
             'juegos' => $juegoRepository->findAll(),
         ]);
+    }
+
+
+    #[Route('/getJuegos', name: 'getJuegos', methods: ['GET'])]
+    public function getTodas(JuegoRepository $juegoRepository): Response
+    {
+        $juegos = $juegoRepository->findAll();
+    
+        $juegosArray = [];
+        foreach ($juegos as $juego) {
+            $juegosArray[] = [
+                'id' => $juego->getId(),
+                'nombre' => $juego->getNombre(),
+                'min_jug' => $juego->getMinJug(),
+                'max_jug' => $juego->getMaxJug(),
+                'tipomesa' => $juego->getTipoMesa(),
+                // Añade aquí más propiedades si es necesario''
+            ];
+        }
+    
+        $jsonResponse = json_encode($juegosArray);
+    
+        $response = new Response($jsonResponse, Response::HTTP_OK);
+        $response->headers->set('Content-Type', 'application/json');
+        
+        return $response;
     }
 
     #[Route('/new', name: 'app_juego_new', methods: ['GET', 'POST'])]

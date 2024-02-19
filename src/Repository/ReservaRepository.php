@@ -38,6 +38,22 @@ class ReservaRepository extends ServiceEntityRepository
         ;
     }
 
+
+
+    /**
+     * Función que devulve las reservas de todos (para los admin)
+     * ordenadas por fecha
+     * @return array;
+     */
+    public function reservasAdmin():array
+    {
+        return $this->createQueryBuilder('r')
+        ->orderBy('r.fecha_inicio', 'ASC')
+        ->getQuery()
+        ->getResult()
+        ;
+    }
+
 //    public function findOneBySomeField($value): ?Reserva
 //    {
 //        return $this->createQueryBuilder('r')

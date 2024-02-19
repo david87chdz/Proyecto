@@ -1,0 +1,99 @@
+ Al entrar un socio verá su lista de reservas ordenadas por
+fecha.
+    "reservasUsuarios"
+ Si el que entra es el administrador verá la lista completa de
+reservas ordenadas por fecha
+    "reservasAdmin"
+ Tanto socios como administradores podrán hacer búsquedas
+de las reservas ya realizadas. Solamente el administrador
+podrá buscar por nombre de socio.
+
+ Para el procedimiento de reserva de mesas:
+ Si se busca por tamaño de mesa (ancho y largo) saldrán las
+mesas de ese ancho y ese largo o que sean mayores.
+  
+      public function mesasTamanio($value): array
+    {
+        $tipoMesa = $this->entityManager->getRepository(TipoMesa::class)->find($value);
+        $area=$tipoMesa->getAncho()*$tipoMesa->getLargo();
+        
+        return $this->createQueryBuilder('m')
+            ->join('m.tipomesa', 't')
+            ->where('t.ancho * t.largo >= :area')
+            ->setParameter('area', $area)
+            ->getQuery()
+            ->getResult()
+        ;
+
+    }
+
+ Si se busca por juego, se mostrará solamente la mesa que
+más se ajuste al tamaño del area del juego, es decir, que sea
+del mismo ancho y del mismo largo o algo superiores
+
+ Si se busca por fecha y hora, se mostrarán las mesas,
+dibujadas como rectángulos, que están ocupadas con
+sombreado rojo, libres con sombreado verde. Si se busca,
+además de la fecha un tamaño concreto, también se
+mostrarán en rojo las que no sean compatibles con el
+tamaño indicado.
+
+ Si la mesa está libre, se podrá reservar pulsando en ella e
+indicando la fecha y hora de fin de la reserva.
+
+ En el formulario de reserva, se indicará la fecha y hora de
+inicio y fin de la reserva, el tamaño de la mesa o el juego al
+que se quiere jugar.
+
+
+ Si en alguno de los casos anteriores se solapa una reserva
+con otra previa, se mostrará un mensaje de error indicando
+que está reservada hasta la hora de inicio o de fin de la que
+se realizó primero.
+
+
+ Los administradores podrán anular reservas (los socios
+también pero solo si son suyas) Si la anulación se ha
+producido menos de 48 horas antes del inicio de la reserva,
+se penalizará con un punto negativo al socio. Por cada
+reserva que se haya terminado exitosamente se contabilizará
+con un punto positivo.
+ Los administradores podrán buscar por socios (nombre,
+apellidos o nick) ordenándolos por puntuación
+
+
+
+ Los administradores deben de poder insertar nuevos juegos
+indicando tanto el nombre del juego como el tamaño del
+área de juego y que puede incluir una imagen. Las imágenes
+que se insertan inicialmente pueden ser de cualquier tamaño
+y cualquier resolución. Optimiza con el servidor la imagen
+para que se pueda adaptar al tamaño de la mesa a la que
+está destinado. Debes tener en cuenta que esta imagen se
+puede usar también para el fondo de pantalla de la página
+inicial.
+ Se deben poder listar los juegos disponibles
+ Se deben poder añadir mesas nuevas indicando tanto el
+ancho como el largo
+
+ 
+Crea las siguientes interfaces JSON para el Rest-API
+ Para la parte pública debe devolver la imagen del fondo de la
+página de landing promocional. Debe obtenerse
+dinámicamente de forma aleatoria desde el servidor usando
+las imágenes de los juegos. 
+ Lista de reservas ordenadas por fecha (se pasa por
+parámetro el nombre de socio, tamaño de la mesa o juegos
+según corresponda)
+ Lista de mesas, debe devolver el tamaño y si están ocupadas
+libres o necesitan jugadores
+ Reserva de mesa. Devuelve la confirmación o denegación de
+la reserva.
+ Anulación de la reserva. Debe devolver la confirmación y, si
+procede, la penalización
+ Lista de socios ordenados por puntuación
+ Inserción de juegos
+ Listado de juegos
+Si la lista tiene varias páginas deberá recibirse un JSON con las
+indicaciones referentes a la página correspondiente y devolverá los
+registros que correspondan con ella

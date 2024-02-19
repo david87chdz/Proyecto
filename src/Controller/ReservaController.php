@@ -19,7 +19,8 @@ class ReservaController extends AbstractController
     {
         return $this->render('reserva/index.html.twig', [
             'reservas' => $reservaRepository->findAll(),
-            'reservasPropias' =>$reservaRepository->reservasUsuarios('Miguel')
+            'reservasPropias' =>$reservaRepository->reservasUsuarios('Miguel'),
+            'reservasAdmin' =>$reservaRepository->reservasAdmin()
         ]);
     }
 
