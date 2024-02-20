@@ -10,8 +10,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
-//Creo q no funciona
-use Symfony\Component\Serializer\SerializerInterface;
 //Para los json
 use Symfony\Component\HttpFoundation\JsonResponse;
 
@@ -27,7 +25,37 @@ class JuegoController extends AbstractController
         ]);
     }
 
-    //Para enviar los juegos al cliente
+    #[Route('/insertarJuego', name: 'insertarJuego', methods: ['POST'])]
+    public function insertarJuego(Request $request, EntityManagerInterface $entityManager): Response
+    {
+        $data = json_decode($request->getContent(), true);
+
+        // Crear una instancia de Juego
+        $nuevoJuego = new Juego();
+        $nuevoJuego->setNombre($data['nombre']);
+        $nuevoJuego->setMinJug($data['min_jug']);
+        $nuevoJuego->setMaxJug($data['max_jug']);
+        
+        // Resto de campos que locura con los objetos
+
+        
+        //$entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($nuevoJuego);
+        $entityManager->flush();
+
+
+        $responseData = [
+            'mensaje' => 'Juego insertado correctamente'
+        ];
+        
+        $jsonResponse = json_encode($responseData);
+        
+        $response = new Response($jsonResponse, Response::HTTP_CREATED);
+        $response->headers->set('Content-Type', 'application/json');
+        
+        return $response;
+    }
+
     #[Route('/getJuegos', name: 'getJuegos', methods: ['GET'])]
     public function getTodas(JuegoRepository $juegoRepository): Response
     {
@@ -41,7 +69,7 @@ class JuegoController extends AbstractController
                 'min_jug' => $juego->getMinJug(),
                 'max_jug' => $juego->getMaxJug(),
                 'tipomesa' => $juego->getTipoMesa(),
-                //Se pueden mirar si añadir más cosas
+                // Añade aquí más propiedades si es necesario''
             ];
         }
     
@@ -99,38 +127,6 @@ class JuegoController extends AbstractController
         ]);
     }
 
-    //Para intentar añadir
-    #[Route('/insertarJuego', name: 'insertarJuego', methods: ['POST'])]
-    public function insertarJuego(Request $request, EntityManagerInterface $entityManager): Response
-    {
-        $data = json_decode($request->getContent(), true);
-
-        // Crear una instancia de Juego
-        $nuevoJuego = new Juego();
-        $nuevoJuego->setNombre($data['nombre']);
-        $nuevoJuego->setMinJug($data['min_jug']);
-        $nuevoJuego->setMaxJug($data['max_jug']);
-        
-        // Resto de campos que locura con los objetos
-
-        
-        //$entityManager = $this->getDoctrine()->getManager();
-        $entityManager->persist($nuevoJuego);
-        $entityManager->flush();
-
-
-        $responseData = [
-            'mensaje' => 'Juego insertado correctamente'
-        ];
-        
-        $jsonResponse = json_encode($responseData);
-        
-        $response = new Response($jsonResponse, Response::HTTP_CREATED);
-        $response->headers->set('Content-Type', 'application/json');
-        
-        return $response;
-    }
-
     #[Route('/{id}', name: 'app_juego_delete', methods: ['POST'])]
     public function delete(Request $request, Juego $juego, EntityManagerInterface $entityManager): Response
     {
@@ -141,4 +137,8 @@ class JuegoController extends AbstractController
 
         return $this->redirectToRoute('app_juego_index', [], Response::HTTP_SEE_OTHER);
     }
+
+
+    
+
 }

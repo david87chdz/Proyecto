@@ -52,18 +52,10 @@ export class FormularioComponent {
     // Añaadir el resto ¿Como meter los campos que son objetos?
   };
 
-  insertarJuego(): void {
+  insertarJuego() {
     this.juegosService.insertarJuego(this.nuevoJuego)
     console.log(this.nuevoJuego)
-    /*  .subscribe(
-        response => {
-          console.log("Juego insertado correctamente:", response);
-          
-        },
-        error => {
-          console.error("Error al insertar juego:", error);
-        }
-      ); */
+    
   }
 
 }

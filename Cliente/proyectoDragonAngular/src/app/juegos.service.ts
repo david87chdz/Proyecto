@@ -15,7 +15,15 @@ export class JuegosService {
   insertarJuego(juego: any) {
     let jsonData = JSON.stringify(juego);
     console.log(jsonData)
-    return this.http.post("http://127.0.0.1:8000/juego/insertarJuego", jsonData);
-    
+    return this.http.post("http://127.0.0.1:8000/juego/insertarJuego", jsonData)
+    .subscribe(
+      response => {
+        console.log("Juego insertado correctamente:", response);
+        
+      },
+      error => {
+        console.error("Error al insertar juego:", error);
+      }
+    );
   }
 }
