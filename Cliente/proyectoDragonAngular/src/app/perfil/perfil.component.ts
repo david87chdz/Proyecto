@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import { UsuarioService } from '../usuario.service';
 
 @Component({
   selector: 'app-perfil',
@@ -10,7 +11,19 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 })
 export class PerfilComponent {
 
-nombre:string = 'Miguel';
+nombre:string = 'juan';
 apellidos:string = 'Cuevas Burón';
 
+password: string= 'miguel';
+
+
+  constructor(private usuarioService: UsuarioService){
+    
+    
+  }
+
+
+  usuario(){
+    this.usuarioService.insertarJuego({nickname:this.nombre, password: this.password});
+  }
 }

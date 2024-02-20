@@ -14,6 +14,9 @@ use Symfony\Component\Routing\Attribute\Route;
 #[Route('/usuario')]
 class UsuarioController extends AbstractController
 {
+
+
+
     #[Route('/', name: 'app_usuario_index', methods: ['GET'])]
     public function index(UsuarioRepository $usuarioRepository): Response
     {
@@ -21,6 +24,45 @@ class UsuarioController extends AbstractController
             'usuarios' => $usuarioRepository->findAll(),
         ]);
     }
+
+
+    #[Route('/buscarUsuario', name: 'buscarUsuario', methods: ['POST'])]
+    public function buscarUsuario(Request $request, EntityManagerInterface $entityManager, UsuarioRepository $usuarioRepository): Response
+    {
+        $data = json_decode($request->getContent(), true);
+
+        $nickname = $data['nickname'];
+        $password = $data['password'];
+
+        $query = $usuarioRepository->createQueryBuilder('u')
+            ->where('u.nickname = :nickname')
+            ->andWhere('u.password = :password')
+            ->setParameter('nickname', $nickname)
+            ->setParameter('password', $password)
+            ->getQuery();
+
+            $user = $query->getOneOrNullResult();
+
+        if ($user) {
+            $responseData = [
+                'usuario' => $user->getRol()->getNombre()
+            ];
+            $statusCode = Response::HTTP_OK;
+        } else {
+            $responseData = [
+                'mensaje' => 'Usuario no encontrado'
+            ];
+            $statusCode = Response::HTTP_NOT_FOUND;
+        }
+
+        $jsonResponse = json_encode($responseData);
+
+        $response = new Response($jsonResponse, $statusCode);
+        $response->headers->set('Content-Type', 'application/json');
+    
+        return $response;
+    }
+
 
     #[Route('/new', name: 'app_usuario_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
