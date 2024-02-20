@@ -1,3 +1,9 @@
 6a3b07,127.0.0.1,GET,http://127.0.0.1:8000/,1708418707,,404,request
 84e574,127.0.0.1,GET,http://127.0.0.1:8000/juego/,1708418721,53db5a,500,request
 53db5a,127.0.0.1,GET,http://127.0.0.1:8000/juego/,1708418721,,500,request
+6187ae,127.0.0.1,GET,http://127.0.0.1:8000/juego/,1708418833,,200,request
+51b63a,127.0.0.1,GET,http://127.0.0.1:8000/juego/getJuegos,1708418899,,200,request
+0f7140,127.0.0.1,POST,http://127.0.0.1:8000/juego/insertarJuego,1708418903,,201,request
+ceb893,127.0.0.1,GET,http://127.0.0.1:8000/juego/,1708418907,,200,request
+ad5fc4,127.0.0.1,GET,http://127.0.0.1:8000/juego/getJuegos,1708418948,,200,request
+d07252,127.0.0.1,GET,http://127.0.0.1:8000/juego/getJuegos,1708418953,,200,request
