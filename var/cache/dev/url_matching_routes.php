@@ -19,6 +19,7 @@ return [
         '/juego/getJuegos' => [[['_route' => 'getJuegos', '_controller' => 'App\\Controller\\JuegoController::getTodas'], null, ['GET' => 0], null, false, false, null]],
         '/juego/new' => [[['_route' => 'app_juego_new', '_controller' => 'App\\Controller\\JuegoController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/mesa' => [[['_route' => 'app_mesa_index', '_controller' => 'App\\Controller\\MesaController::index'], null, ['GET' => 0], null, true, false, null]],
+        '/mesa/getMesas' => [[['_route' => 'getMesas', '_controller' => 'App\\Controller\\MesaController::getMesas'], null, ['GET' => 0], null, false, false, null]],
         '/mesa/new' => [[['_route' => 'app_mesa_new', '_controller' => 'App\\Controller\\MesaController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/reserva' => [[['_route' => 'app_reserva_index', '_controller' => 'App\\Controller\\ReservaController::index'], null, ['GET' => 0], null, true, false, null]],
         '/reserva/listado' => [[['_route' => 'app_reserva_listado', '_controller' => 'App\\Controller\\ReservaController::listado'], null, ['GET' => 0], null, false, false, null]],

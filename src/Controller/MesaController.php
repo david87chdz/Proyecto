@@ -23,6 +23,28 @@ class MesaController extends AbstractController
         ]);
     }
 
+    #[Route('/getMesas', name: 'getMesas', methods: ['GET'])]
+    public function getMesas(MesaRepository $mesaRepository): Response
+    {
+        $mesas = $mesaRepository->findAll();
+    
+        $mesasArray= [];
+        foreach ($mesas as $mesa) {
+                $mesasArray[] = [
+                    'id' => $mesa->getId(),
+                    'disponible' => $mesa->isDisponible(),
+                    'tipomesa' => $mesa->getTipoMesa(),
+                ];
+        }
+    
+        $jsonResponse = json_encode($mesasArray);
+    
+        $response = new Response($jsonResponse, Response::HTTP_OK);
+        $response->headers->set('Content-Type', 'application/json');
+        
+        return $response;
+    }
+
     #[Route('/new', name: 'app_mesa_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {

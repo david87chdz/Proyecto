@@ -1,9 +1,12 @@
 
 <!-- <div class="contenido" [style.display]="elementoVisible ? 'block' : 'none'"> -->
-
-@if(disponible){ 
-    <div id="{{id_mesa}}" class="tipo{{tipomesa}} verde" (click)="irAFormulario(id_mesa)"></div>    
-}@else{ 
-      <div id="{{id_mesa}}" class="tipo{{tipomesa}} rojo" (click)="irAFormulario(id_mesa)"></div>
+@for(mesa of mesas; track $index){
+    @if(mesa.disponible){ 
+        <div id="{{id_mesa}}" class="tipo{{tipomesa}} verde" (click)="irAFormulario(id_mesa)"></div>    
+    }@else{ 
+          <div id="{{id_mesa}}" class="tipo{{tipomesa}} rojo" (click)="irAFormulario(id_mesa)"></div>
+    }
 }
+
+
 <!-- </div> -->

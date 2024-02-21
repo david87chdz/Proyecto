@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { Mesa } from '../mesa';
 import { Router } from '@angular/router';
 import { FormComponent } from './form/form.component';
+import { MesasService } from '../mesas.service';
 @Component({
   selector: 'app-mesa',
   standalone: true,
@@ -24,14 +25,20 @@ export class MesaComponent implements OnInit{
   disponible: boolean = true;
   elementoVisible: boolean = true;
 
+  mesas: any;
 
   // ,private elRef: ElementRef, private renderer: Renderer2
-  constructor( private router: Router) {
+  constructor( private router: Router, private mesasService: MesasService) {
   
-
+    this.mesasService.mesas()
+    .subscribe(result => 
+      this.mesas = result
+      )
+      //console.log(this.mesas)
   }
   ngOnInit(): void {
     // this.elementoVisible =true;
+    //this.mesas=this.mesasService.mesas()
   }
 
   ngOnChange(): void {
@@ -52,6 +59,7 @@ export class MesaComponent implements OnInit{
 
 
    }
+
 
 
 }
