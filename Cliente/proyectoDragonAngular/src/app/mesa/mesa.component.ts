@@ -12,20 +12,14 @@ import { MesasService } from '../mesas.service';
 })
 export class MesaComponent implements OnInit{
 
-  // mesas: Mesa[] = [
-  //   { id_Mesa: 1, tipomesa: 1, disponible: true },
-  //   { id_Mesa: 2, tipomesa: 2, disponible: false },
-  //   { id_Mesa: 3, tipomesa: 1, disponible: true },
-  //   { id_Mesa: 4, tipomesa: 2, disponible: true }
-  // ];
-
+ 
   id_mesa: number = 7;
   id_usuario: number=345;
   tipomesa: number = 2;
   disponible: boolean = true;
   elementoVisible: boolean = true;
 
-  mesas: any;
+  mesas: any ;
 
   // ,private elRef: ElementRef, private renderer: Renderer2
   constructor( private router: Router, private mesasService: MesasService) {
@@ -34,7 +28,7 @@ export class MesaComponent implements OnInit{
     .subscribe(result => 
       this.mesas = result
       )
-      //console.log(this.mesas)
+      //console.log(this.mesas.length)
   }
   ngOnInit(): void {
     // this.elementoVisible =true;

@@ -12,7 +12,7 @@ export class MesasService {
   }
 
   mesas(){
-    return this.http.get("http://127.0.0.1:8000/juego/getJuegos");
+    return this.http.get("http://127.0.0.1:8000/mesa/getMesas");
   }
 
 

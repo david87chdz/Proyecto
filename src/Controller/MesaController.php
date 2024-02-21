@@ -33,7 +33,7 @@ class MesaController extends AbstractController
                 $mesasArray[] = [
                     'id' => $mesa->getId(),
                     'disponible' => $mesa->isDisponible(),
-                    'tipomesa' => $mesa->getTipoMesa(),
+                    'tipomesa' => $mesa->getTipoMesa()->getId(),
                 ];
         }
     
