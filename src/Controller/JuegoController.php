@@ -63,14 +63,31 @@ class JuegoController extends AbstractController
     
         $juegosArray = [];
         foreach ($juegos as $juego) {
-            $juegosArray[] = [
-                'id' => $juego->getId(),
-                'nombre' => $juego->getNombre(),
-                'min_jug' => $juego->getMinJug(),
-                'max_jug' => $juego->getMaxJug(),
-                'tipomesa' => $juego->getTipoMesa(),
-                // Añade aquí más propiedades si es necesario''
-            ];
+            if(!$juego->getImagen()){
+                $juegosArray[] = [
+                    'id' => $juego->getId(),
+                    'nombre' => $juego->getNombre(),
+                    'min_jug' => $juego->getMinJug(),
+                    'max_jug' => $juego->getMaxJug(),
+                    'tipomesa' => $juego->getTipoMesa(),
+                    'imagen'=> "no tiene"
+                    //'imagen' => $juego->getImagen(),
+                    // Añadir el resto
+                ];
+            }else{
+                $juegosArray[] = [
+                    'id' => $juego->getId(),
+                    'nombre' => $juego->getNombre(),
+                    'min_jug' => $juego->getMinJug(),
+                    'max_jug' => $juego->getMaxJug(),
+                    'tipomesa' => $juego->getTipoMesa(),
+                    'imagen'=> base64_encode(stream_get_contents($juego->getImagen()))
+                    
+                    //'imagen' => $juego->getImagen(),
+                    // Añadir el resto
+                ];
+            }
+           
         }
     
         $jsonResponse = json_encode($juegosArray);

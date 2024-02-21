@@ -16,7 +16,7 @@
         <p>
           <select id="juego" name="juego">
             @for(juego of juegos; track juego.id){
-              <option value="{{juego.id}}">{{juego.nombre}}</option>
+              <option value="{{juego.id}}">{{juego.nombre}}-{{juego.imagen}}</option>
             }
           </select>
         </p>
@@ -111,7 +111,16 @@
       </div>
       
     </div>
-   
+    <div>
+      @for(juego of juegos; track $index){
+        <div>
+          <h3>{{juego.nombre}}</h3>
+          @if(juego.imagen!='no tiene'){
+            <img src="data:image;base64,{{juego.imagen}}" alt="">
+          }
+        </div>
+      }
+    </div>
 </main>
     <!-- <footer>
         <h3>Miguel Cuevas y David Cerezo</h3>

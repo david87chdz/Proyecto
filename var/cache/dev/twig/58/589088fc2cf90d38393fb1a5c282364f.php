@@ -546,6 +546,6 @@ class __TwigTemplate_169d124948f2bcff1ef57e5318ebbb70 extends Template
         }
     }
 </script>
-", "@WebProfiler/Profiler/base_js.html.twig", "C:\\Users\\Alumno\\OneDrive - Educacyl\\2ºDAW\\Proyecto\\proyectoDragon\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\base_js.html.twig");
+", "@WebProfiler/Profiler/base_js.html.twig", "C:\\Users\\Alumno\\Desktop\\Proyecto\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\base_js.html.twig");
     }
 }
