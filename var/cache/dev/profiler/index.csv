@@ -343,3 +343,7 @@ cf7bdd,127.0.0.1,GET,http://127.0.0.1:8000/juego/getJuegos,1708519014,,200,reque
 73d7b9,127.0.0.1,GET,http://127.0.0.1:8000/mesa/getMesas,1708519172,,200,request
 b67d88,127.0.0.1,GET,http://127.0.0.1:8000/mesa/getMesas,1708519175,,200,request
 322f6f,127.0.0.1,GET,http://127.0.0.1:8000/mesa/getMesas,1708519178,,200,request
+ec7387,127.0.0.1,GET,http://127.0.0.1:8000/juego/getJuegos,1708519707,,200,request
+cc2cd3,127.0.0.1,GET,http://127.0.0.1:8000/juego/getJuegos,1708520207,,200,request
+049fe1,127.0.0.1,GET,http://127.0.0.1:8000/juego/getJuegos,1708520216,,200,request
+f5ff6c,127.0.0.1,GET,http://127.0.0.1:8000/juego/getJuegos,1708520231,,200,request

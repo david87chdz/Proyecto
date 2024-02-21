@@ -13,6 +13,7 @@ import { MesasService } from '../mesas.service';
 export class MesaComponent implements OnInit{
 
  
+
   id_mesa: number = 7;
   id_usuario: number=345;
   tipomesa: number = 2;
