@@ -7,7 +7,7 @@ namespace Proxies\__CG__\App\Entity;
  */
 class TipoMesa extends \App\Entity\TipoMesa implements \Doctrine\ORM\Proxy\InternalProxy
 {
-    use \Symfony\Component\VarExporter\LazyGhostTrait {
+     use \Symfony\Component\VarExporter\LazyGhostTrait {
         initializeLazyObject as __load;
         setLazyObjectAsInitialized as public __setInitialized;
         isLazyObjectInitialized as private;
@@ -26,7 +26,7 @@ class TipoMesa extends \App\Entity\TipoMesa implements \Doctrine\ORM\Proxy\Inter
         'juegos' => [parent::class, 'juegos', null],
         'largo' => [parent::class, 'largo', null],
         'mesas' => [parent::class, 'mesas', null],
-    ];
+    ];
 
     public function __isInitialized(): bool
     {
