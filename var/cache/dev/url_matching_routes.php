@@ -15,6 +15,7 @@ return [
         '/_profiler/xdebug' => [[['_route' => '_profiler_xdebug', '_controller' => 'web_profiler.controller.profiler::xdebugAction'], null, null, null, false, false, null]],
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
         '/juego' => [[['_route' => 'app_juego_index', '_controller' => 'App\\Controller\\JuegoController::index'], null, ['GET' => 0], null, true, false, null]],
+        '/juego/insertarJuego' => [[['_route' => 'insertarJuego', '_controller' => 'App\\Controller\\JuegoController::insertarJuego'], null, ['POST' => 0], null, false, false, null]],
         '/juego/getJuegos' => [[['_route' => 'getJuegos', '_controller' => 'App\\Controller\\JuegoController::getTodas'], null, ['GET' => 0], null, false, false, null]],
         '/juego/new' => [[['_route' => 'app_juego_new', '_controller' => 'App\\Controller\\JuegoController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/mesa' => [[['_route' => 'app_mesa_index', '_controller' => 'App\\Controller\\MesaController::index'], null, ['GET' => 0], null, true, false, null]],
@@ -27,6 +28,7 @@ return [
         '/tipo/mesa' => [[['_route' => 'app_tipo_mesa_index', '_controller' => 'App\\Controller\\TipoMesaController::index'], null, ['GET' => 0], null, true, false, null]],
         '/tipo/mesa/new' => [[['_route' => 'app_tipo_mesa_new', '_controller' => 'App\\Controller\\TipoMesaController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/usuario' => [[['_route' => 'app_usuario_index', '_controller' => 'App\\Controller\\UsuarioController::index'], null, ['GET' => 0], null, true, false, null]],
+        '/usuario/buscarUsuario' => [[['_route' => 'buscarUsuario', '_controller' => 'App\\Controller\\UsuarioController::buscarUsuario'], null, ['POST' => 0], null, false, false, null]],
         '/usuario/new' => [[['_route' => 'app_usuario_new', '_controller' => 'App\\Controller\\UsuarioController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
     ],
     [ // $regexpList

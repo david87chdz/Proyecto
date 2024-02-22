@@ -897,6 +897,6 @@ class __TwigTemplate_1961a25dfad36940ad01a53268c5a7ca extends Template
         </tbody>
     </table>
 {% endmacro %}
-", "@WebProfiler/Collector/translation.html.twig", "C:\\Users\\Alumno\\OneDrive - Educacyl\\2ºDAW\\Proyecto\\proyectoDragon\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\translation.html.twig");
+", "@WebProfiler/Collector/translation.html.twig", "C:\\Users\\Propietario\\Escritorio\\Proyec\\proyectoDragon\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\translation.html.twig");
     }
 }
