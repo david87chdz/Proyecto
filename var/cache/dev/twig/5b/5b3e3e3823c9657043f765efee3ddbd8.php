@@ -235,6 +235,6 @@ class __TwigTemplate_800a9566d3475b6f27b9a0839ee8bd91 extends Template
 
     <a href=\"{{ path('app_juego_new') }}\">Create new</a>
 {% endblock %}
-", "juego/index.html.twig", "C:\\Users\\Alumno\\OneDrive - Educacyl\\2ºDAW\\Proyecto\\proyectoDragon\\templates\\juego\\index.html.twig");
+", "juego/index.html.twig", "C:\\Users\\Alumno\\Desktop\\Proyecto\\templates\\juego\\index.html.twig");
     }
 }

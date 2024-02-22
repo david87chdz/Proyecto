@@ -11,10 +11,10 @@ import { UsuarioService } from '../usuario.service';
 })
 export class PerfilComponent {
 
-nombre:string = 'juan';
+nombre:string = 'david';
 apellidos:string = 'Cuevas Burón';
 
-password: string= 'miguel';
+password: string= 'david';
 
 
   constructor(private usuarioService: UsuarioService){
@@ -24,6 +24,6 @@ password: string= 'miguel';
 
 
   usuario(){
-    this.usuarioService.insertarJuego({nickname:this.nombre, password: this.password});
+    this.usuarioService.buscarUsuario({nickname:this.nombre, password: this.password});
   }
 }

@@ -34,10 +34,9 @@ export class FormularioComponent {
 
     this.juegosService.retornar()
       .subscribe(result => 
-        //console.log(result)
         this.juegos = result
         )
-        
+        console.log(this.juegos)
   }
   //console.log(this.juegos);
   volverAtras() {

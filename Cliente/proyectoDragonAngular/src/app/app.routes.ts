@@ -3,6 +3,7 @@ import { MesaComponent } from './mesa/mesa.component';
 import { FormularioComponent } from './formulario/formulario.component';
 import { FormComponent } from './mesa/form/form.component';
 import { PerfilComponent } from './perfil/perfil.component';
+import { usersGuard } from './users.guard';
 //import { Component } from '@angular/core';
 //import { NgModule } from '@angular/core';
 
@@ -24,7 +25,8 @@ component : FormularioComponent
 },
 {
     path: 'perfil',
-    component: PerfilComponent
+    component: PerfilComponent,
+    canActivate: [usersGuard]
 }
 
 ]
