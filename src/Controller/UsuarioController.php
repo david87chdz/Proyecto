@@ -46,6 +46,7 @@ class UsuarioController extends AbstractController
         if ($user) {
             $responseData = [
                 'usuario' => $user->getRol()->getNombre(),
+                'id' => $user->getId(),
                 'fecha' => date("F j, Y, g:i a") 
             ];
             $statusCode = Response::HTTP_OK;

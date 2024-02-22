@@ -25,6 +25,7 @@ class JuegoController extends AbstractController
         ]);
     }
 
+    
     #[Route('/insertarJuego', name: 'insertarJuego', methods: ['POST'])]
     public function insertarJuego(Request $request, EntityManagerInterface $entityManager): Response
     {

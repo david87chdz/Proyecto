@@ -22,25 +22,6 @@ class ReservaRepository extends ServiceEntityRepository
     }
 
 
-     /**
-     * Función que devuelve las mesas
-     * fecha
-     * @return array Returns an array of Reserva objects
-     */
-    public function mesasReservadas($value): array
-    {
-        return $this->createQueryBuilder('r')
-            ->join('r.mesa_id', 'm')
-            ->where('r.fecha_inicio  = :val')
-            ->setParameter('val', $value)
-            ->orderBy('r.fecha_inicio', 'ASC')
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-
-
-
 
     /**
      * Función que devuelve las reservas de un usuario ordenadas por

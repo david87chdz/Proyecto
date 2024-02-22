@@ -47,6 +47,22 @@ class MesaRepository extends ServiceEntityRepository
 
     }
 
+     /**
+     * Función que devuelve las mesas por reservas
+     * fecha
+     * @return array Returns an array of Reserva objects
+     */
+    public function mesasReservadas($value): array
+    {
+    return $this->createQueryBuilder('m')
+        ->join('m.reservas', 'r')
+        ->where('r.fecha_inicio <= :fecha_actual')
+        ->andWhere('r.fecha_fin >= :fecha_actual')
+        ->setParameter('fecha_actual', $value)
+        ->orderBy('r.fecha_inicio', 'ASC')
+        ->getQuery()
+        ->getResult();
+    }
 
 
 //    /**

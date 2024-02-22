@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Mesa;
 use App\Form\MesaType;
 use App\Repository\MesaRepository;
+//use App\Repository\ReservaRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -24,10 +25,35 @@ class MesaController extends AbstractController
     }
 
     #[Route('/getMesas', name: 'getMesas', methods: ['GET'])]
-    public function getMesas(MesaRepository $mesaRepository): Response
-    {
+    public function getMesas(MesaRepository $mesaRepository, EntityManagerInterface $entityManager): Response
+    {   
+
+        $fechaActual = date("Y-m-d H:i:s");
         $mesas = $mesaRepository->findAll();
-    
+        $mesasOcupadas=$mesaRepository->mesasReservadas($fechaActual);
+        foreach ($mesas as $mesa) {
+            // Verificamos si la mesa está ocupada
+            $ocupada = false;
+            foreach ($mesasOcupadas as $mesaOcupada) {
+                if ($mesa->getId() == $mesaOcupada->getId()) {
+                    $ocupada = true;
+                    break;
+                }
+            }
+        
+            // Cambiamos el estado de la mesa
+            if ($ocupada) {
+                $mesa->setDisponible(false);
+            } else {
+                $mesa->setDisponible(true);
+            }
+        
+            // Guardamos los cambios en la base de datos
+            $entityManager->persist($mesa);
+        }
+        
+        // Aplicamos los cambios en la base de datos
+        $entityManager->flush();
         $mesasArray= [];
         foreach ($mesas as $mesa) {
                 $mesasArray[] = [
