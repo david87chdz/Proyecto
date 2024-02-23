@@ -694,3 +694,7 @@ bbb522,127.0.0.1,POST,http://127.0.0.1:8000/reserva/buscarReserva,1708728721,,50
 2c67f3,127.0.0.1,GET,http://127.0.0.1:8000/reserva/buscarReserva,1708728782,53c617,500,request
 53c617,127.0.0.1,POST,http://127.0.0.1:8000/reserva/buscarReserva,1708728782,,500,request
 0af80c,127.0.0.1,POST,http://127.0.0.1:8000/reserva/buscarReserva,1708728950,,200,request
+2e5eac,127.0.0.1,POST,http://127.0.0.1:8000/reserva/buscarReserva,1708729024,,200,request
+405dc5,127.0.0.1,POST,http://127.0.0.1:8000/reserva/buscarReserva,1708729045,,200,request
+d0c520,127.0.0.1,GET,http://127.0.0.1:8000/mesa/getMesas,1708729048,,200,request
+f24d7a,127.0.0.1,POST,http://127.0.0.1:8000/reserva/buscarReserva,1708729051,,200,request

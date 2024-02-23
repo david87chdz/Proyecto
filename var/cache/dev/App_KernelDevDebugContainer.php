@@ -16,7 +16,7 @@ if (!\class_exists(App_KernelDevDebugContainer::class, false)) {
 
 return new \ContainerFbWJnis\App_KernelDevDebugContainer([
     'container.build_hash' => 'FbWJnis',
-    'container.build_id' => '3cfda685',
-    'container.build_time' => 1708728948,
+    'container.build_id' => '9de0c991',
+    'container.build_time' => 1708729021,
     'container.runtime_mode' => \in_array(\PHP_SAPI, ['cli', 'phpdbg', 'embed'], true) ? 'web=0' : 'web=1',
 ], __DIR__.\DIRECTORY_SEPARATOR.'ContainerFbWJnis');
