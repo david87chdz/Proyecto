@@ -1,0 +1,10 @@
+.card{
+    background-color: rgb(206, 193, 10);
+    color: rgb(0, 0, 0);
+    
+    width: 600px;
+    
+}
+.form-group{
+    margin: 4px;
+}

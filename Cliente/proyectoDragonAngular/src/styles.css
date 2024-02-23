@@ -1,1 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    background: url(assets/images/pexels-raka-miftah-4253690.jpg) no-repeat ; 
+    background-size: cover;
+    min-height: 100lvh;
+}

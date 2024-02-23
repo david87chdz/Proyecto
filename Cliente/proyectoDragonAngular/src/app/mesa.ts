@@ -1,8 +1,6 @@
 export interface Mesa {
-
-   
-id_Mesa: number;
-tipomesa: number;
-disponible:boolean;
+    id_mesa: number;
+    tipomesa: number;
+    disponible:boolean;
 
 }
