@@ -24,6 +24,49 @@ class ReservaController extends AbstractController
         ]);
     }
 
+
+    #[Route('/buscarMesas', name: 'buscarMesas', methods: ['POST'])]
+    public function buscarMesas(Request $request, EntityManagerInterface $entityManager, ReservaRepository $reservaRepository): Response
+    {
+        $data = json_decode($request->getContent(), true);
+
+        $id = $data['nombre_usuario'];
+
+        $reservas = $reservaRepository->createQueryBuilder('r')
+            ->join('r.usuario', 'u')
+            ->where('r.usuario_id = :idUsuario')
+            ->setParameter('idUsuario', $idUsuario)
+            ->orderBy('r.fecha_inicio', 'ASC')
+            ->getQuery()
+            ->getResult();
+
+        if ($reservas) {
+            $responseData = [];
+
+            foreach ($reservas as $reserva) {
+                $responseData[] = [
+                    'id_reserva' => $reserva->getId(),
+                    'usuario' => $reserva->getUsuario()->getNombre(),
+                    'mesa' => $reserva->getMesa()->getId(),
+                    'juego' => $reserva->getJuego()->getNombre(),
+                    'fecha_inicio' => $reserva->getFechaInicio()->format('Y-m-d H:i:s'),
+                    'fecha_fin' => $reserva->getFechaFin()->format('Y-m-d H:i:s'),
+                    // Añade aquí más información sobre la reserva si es necesario
+                ];
+            }
+
+            $statusCode = Response::HTTP_OK;
+        } else {
+            $responseData = [
+                'mensaje' => 'No se encontraron reservas para el usuario con id: ' . $id
+            ];
+            $statusCode = Response::HTTP_NOT_FOUND;
+        }
+
+        return $this->json($responseData, $statusCode);
+    }
+
+
     
     #[Route('/listado', name: 'app_reserva_listado', methods: ['GET'])]
     public function listado(ReservaRepository $reservaRepository): Response
