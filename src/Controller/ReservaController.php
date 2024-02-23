@@ -33,12 +33,12 @@ class ReservaController extends AbstractController
         $id = $data['id'];
 
         $reservas = $reservaRepository->createQueryBuilder('r')
-    ->join('r.usuario', 'u')
-    ->where('u.id = :idUsuario')
-    ->setParameter('idUsuario', $id)
-    ->orderBy('r.fecha_inicio', 'ASC') // Asumiendo que 'fechaInicio' es el nombre de la propiedad en la entidad Reserva
-    ->getQuery()
-    ->getResult();
+        ->join('r.usuario', 'u')
+        ->where('u.id = :idUsuario')
+        ->setParameter('idUsuario', $id)
+        ->orderBy('r.fecha_inicio', 'ASC') // Asumiendo que 'fechaInicio' es el nombre de la propiedad en la entidad Reserva
+        ->getQuery()
+        ->getResult();
 
         if ($reservas) {
             $responseData = [];
