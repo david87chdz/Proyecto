@@ -51,7 +51,6 @@ class ReservaController extends AbstractController
                     'juego' => $reserva->getJuego()->getNombre(),
                     'fecha_inicio' => $reserva->getFechaInicio()->format('Y-m-d H:i:s'),
                     'fecha_fin' => $reserva->getFechaFin()->format('Y-m-d H:i:s'),
-                    // Añade aquí más información sobre la reserva si es necesario
                 ];
             }
 
