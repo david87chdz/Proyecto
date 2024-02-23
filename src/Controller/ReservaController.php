@@ -25,20 +25,20 @@ class ReservaController extends AbstractController
     }
 
 
-    #[Route('/buscarMesas', name: 'buscarMesas', methods: ['POST'])]
-    public function buscarMesas(Request $request, EntityManagerInterface $entityManager, ReservaRepository $reservaRepository): Response
+    #[Route('/buscarReserva', name: 'buscarReserva', methods: ['POST'])]
+    public function buscarReserva(Request $request, EntityManagerInterface $entityManager, ReservaRepository $reservaRepository): Response
     {
         $data = json_decode($request->getContent(), true);
 
-        $id = $data['nombre_usuario'];
+        $id = $data['id'];
 
         $reservas = $reservaRepository->createQueryBuilder('r')
-            ->join('r.usuario', 'u')
-            ->where('r.usuario_id = :idUsuario')
-            ->setParameter('idUsuario', $idUsuario)
-            ->orderBy('r.fecha_inicio', 'ASC')
-            ->getQuery()
-            ->getResult();
+    ->join('r.usuario', 'u')
+    ->where('u.id = :idUsuario')
+    ->setParameter('idUsuario', $id)
+    ->orderBy('r.fecha_inicio', 'ASC') // Asumiendo que 'fechaInicio' es el nombre de la propiedad en la entidad Reserva
+    ->getQuery()
+    ->getResult();
 
         if ($reservas) {
             $responseData = [];

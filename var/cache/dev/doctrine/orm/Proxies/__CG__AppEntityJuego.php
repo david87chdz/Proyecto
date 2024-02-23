@@ -7,7 +7,7 @@ namespace Proxies\__CG__\App\Entity;
  */
 class Juego extends \App\Entity\Juego implements \Doctrine\ORM\Proxy\InternalProxy
 {
-    use \Symfony\Component\VarExporter\LazyGhostTrait {
+     use \Symfony\Component\VarExporter\LazyGhostTrait {
         initializeLazyObject as __load;
         setLazyObjectAsInitialized as public __setInitialized;
         isLazyObjectInitialized as private;
@@ -30,7 +30,7 @@ class Juego extends \App\Entity\Juego implements \Doctrine\ORM\Proxy\InternalPro
         'nombre' => [parent::class, 'nombre', null],
         'reservas' => [parent::class, 'reservas', null],
         'tipomesa' => [parent::class, 'tipomesa', null],
-    ];
+    ];
 
     public function __isInitialized(): bool
     {

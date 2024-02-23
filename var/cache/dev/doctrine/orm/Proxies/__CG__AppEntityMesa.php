@@ -7,7 +7,7 @@ namespace Proxies\__CG__\App\Entity;
  */
 class Mesa extends \App\Entity\Mesa implements \Doctrine\ORM\Proxy\InternalProxy
 {
-    use \Symfony\Component\VarExporter\LazyGhostTrait {
+     use \Symfony\Component\VarExporter\LazyGhostTrait {
         initializeLazyObject as __load;
         setLazyObjectAsInitialized as public __setInitialized;
         isLazyObjectInitialized as private;
@@ -24,7 +24,7 @@ class Mesa extends \App\Entity\Mesa implements \Doctrine\ORM\Proxy\InternalProxy
         'id' => [parent::class, 'id', null],
         'reservas' => [parent::class, 'reservas', null],
         'tipomesa' => [parent::class, 'tipomesa', null],
-    ];
+    ];
 
     public function __isInitialized(): bool
     {
