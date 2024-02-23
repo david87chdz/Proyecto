@@ -29,16 +29,15 @@ class ReservaController extends AbstractController
     public function buscarReserva(Request $request, EntityManagerInterface $entityManager, ReservaRepository $reservaRepository): Response
     {
         $data = json_decode($request->getContent(), true);
-
         $id = $data['id'];
 
-        $reservas = $reservaRepository->createQueryBuilder('r')
-        ->join('r.usuario', 'u')
-        ->where('u.id = :idUsuario')
-        ->setParameter('idUsuario', $id)
-        ->orderBy('r.fecha_inicio', 'ASC') // Asumiendo que 'fechaInicio' es el nombre de la propiedad en la entidad Reserva
-        ->getQuery()
-        ->getResult();
+        //Para ver si es admin o socio
+        if($nombreRol=$reservaRepository->admin($id)=='Admin'){
+            $reservas=$reservaRepository->reservasAdmin();
+        }else{
+            $reservas= $reservaRepository->reservasUsuarios($id);
+        }
+        
 
         if ($reservas) {
             $responseData = [];
