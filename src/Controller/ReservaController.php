@@ -5,12 +5,15 @@ namespace App\Controller;
 use App\Entity\Reserva;
 use App\Form\ReservaType;
 use App\Repository\ReservaRepository;
+use App\Repository\JuegoRepository;
+use App\Repository\UsuarioRepository;
+use App\Repository\MesaRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
-
+use Datetime;
 #[Route('/reserva')]
 class ReservaController extends AbstractController
 {
@@ -66,7 +69,55 @@ class ReservaController extends AbstractController
     }
 
 
+    #[Route('/aniadirReserva', name: 'aniadirReserva', methods: ['POST'])]
+    public function aniadirReserva(Request $request, JuegoRepository $juegoRepository,
+     EntityManagerInterface $entityManager, Usuariorepository $usuarioRepository,
+     ReservaRepository $reservaRepository, MesaRepository $mesaRepository): Response
+    {
+        $data = json_decode($request->getContent(), true);
+        
+        $fecha_inicio = $data['fecha_inicio'];
+        $fecha_inicio = new DateTime($fecha_inicio);
+        $fecha_fin = $data['fecha_fin'];
+        $fecha_fin = new DateTime($fecha_fin);
+
+        $juego_id = $data['juego_id'];
+        $usuario_id = $data['usuario_id'];
+        $mesa_id = $data['mesa_id'];
+        $juego = $juegoRepository->juegoId($juego_id);
+        //$juego = $entityManagerentity-($juego_id);
+        $mesa = $mesaRepository->mesaId($mesa_id);
+        $usuario = $usuarioRepository->usuarioId($usuario_id);
     
+        $reserva = new Reserva();
+    
+        $reserva->setFechaInicio($fecha_inicio);
+        $reserva->setFechaFin($fecha_fin);
+        $reserva->setUsuario($usuario);
+        $reserva->setMesa($mesa);
+        $reserva->setJuego($juego);
+    
+        $entityManager->persist($reserva);
+        $entityManager->flush();
+    
+        $responseData = [];
+    
+        if ($reserva->getId()) {
+            // Si se insertó correctamente
+            $mensaje = 'La reserva se ha insertado correctamente.';
+            $statusCode = Response::HTTP_OK;
+        } else {
+            // Si hubo un error al insertar
+            $mensaje = 'Ha ocurrido un error al insertar la reserva.';
+            $statusCode = Response::HTTP_INTERNAL_SERVER_ERROR;
+        }
+    
+        $responseData['mensaje'] = $mensaje;
+    
+        return $this->json($responseData, $statusCode);
+    }
+
+
     #[Route('/listado', name: 'app_reserva_listado', methods: ['GET'])]
     public function listado(ReservaRepository $reservaRepository): Response
     {

@@ -21,6 +21,11 @@ class JuegoRepository extends ServiceEntityRepository
         parent::__construct($registry, Juego::class);
     }
 
+
+    public function juegoId($id): ?Juego
+    {
+        return $this->find($id);
+    }
 //    /**
 //     * @return Juego[] Returns an array of Juego objects
 //     */

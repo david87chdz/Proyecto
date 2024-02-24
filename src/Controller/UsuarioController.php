@@ -48,6 +48,7 @@ class UsuarioController extends AbstractController
         if($user){
             $responseData = [
                 'usuario' => $user->getRol()->getNombre(),
+                'nombre'=> $user->getNickname(), 
                 'id' => $user->getId(),
                 'fecha' => date("F j, Y, g:i a") 
             ];

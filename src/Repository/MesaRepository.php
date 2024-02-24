@@ -64,6 +64,10 @@ class MesaRepository extends ServiceEntityRepository
         ->getResult();
     }
 
+    public function mesaId($id): ?Mesa
+    {
+        return $this->find($id);
+    }
 
 //    /**
 //     * @return Mesa[] Returns an array of Mesa objects

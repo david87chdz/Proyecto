@@ -44,7 +44,16 @@ class UsuarioRepository extends ServiceEntityRepository
         ->setParameter('nombre', $nombreRol)
         ->getOneOrNullResult();
     }
+
+
+    public function usuarioId($id): ?Usuario
+    {
+        return $this->find($id);
+    }
+
 }
+
+
 
 
 //    /**

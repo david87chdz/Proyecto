@@ -89,6 +89,39 @@ class ReservaRepository extends ServiceEntityRepository
         ;
     }
 
+
+    public function juegoId($idJuego)
+    {
+        return $this->getEntityManager()
+            ->createQuery(
+                'SELECT j FROM App\Entity\Juego j WHERE j.id = :idJuego'
+            )
+            ->setParameter('idJuego', $idJuego)
+            ->setMaxResults(1) // Establece el máximo de resultados a 1
+            ->getOneOrNullResult();
+    }
+
+    public function mesaId($idmesa)
+    {
+        return $this->createQueryBuilder('r')
+            ->leftJoin('r.mesa', 'm') // Unir la tabla de Juegos
+            ->andWhere('m.id = :idMesa')
+            ->setParameter('idMesa', $idmesa)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
+    
+    
+    public function usuarioId($idusuario)
+    {
+        return $this->createQueryBuilder('r')
+            ->leftJoin('r.usuario', 'u') // Unir la tabla de Juegos
+            ->andWhere('u.id = :idUsuario')
+            ->setParameter('idUsuario', $idusuario)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
+
 //    public function findOneBySomeField($value): ?Reserva
 //    {
 //        return $this->createQueryBuilder('r')
