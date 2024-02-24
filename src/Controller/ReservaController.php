@@ -96,7 +96,7 @@ class ReservaController extends AbstractController
         $reserva->setUsuario($usuario);
         $reserva->setMesa($mesa);
         $reserva->setJuego($juego);
-    
+        $reserva->setCompletada(0);
         $entityManager->persist($reserva);
         $entityManager->flush();
     
