@@ -1147,3 +1147,12 @@ b1473a,127.0.0.1,POST,http://127.0.0.1:8000/usuario/buscarUsuario,1708810486,,20
 ec05fc,127.0.0.1,POST,http://127.0.0.1:8000/usuario/buscarUsuario,1708812027,,200,request
 73695f,127.0.0.1,GET,http://127.0.0.1:8000/juego/getJuegos,1708812581,,200,request
 cab6de,127.0.0.1,GET,http://127.0.0.1:8000/juego/getJuegos,1708812645,,200,request
+5370bd,127.0.0.1,GET,http://127.0.0.1:8000/juego/getJuegos,1708813902,,200,request
+c95aeb,127.0.0.1,GET,http://127.0.0.1:8000/juego/getJuegos,1708813903,,200,request
+e0027b,127.0.0.1,GET,http://127.0.0.1:8000/juego/getJuegos,1708813904,,200,request
+cdd04d,127.0.0.1,OPTIONS,http://127.0.0.1:8000/juego/modificaJuego,1708814289,,200,request
+f17580,127.0.0.1,GET,http://127.0.0.1:8000/juego/modificaJuego,1708814290,e9dcde,405,request
+e9dcde,127.0.0.1,PUT,http://127.0.0.1:8000/juego/modificaJuego,1708814290,,405,request
+ee9bab,127.0.0.1,GET,http://127.0.0.1:8000/juego/modificaJuego,1708814461,7ddbf7,405,request
+7ddbf7,127.0.0.1,PUT,http://127.0.0.1:8000/juego/modificaJuego,1708814461,,405,request
+6c926a,127.0.0.1,PUT,http://127.0.0.1:8000/juego/modificaJuego,1708814667,,200,request

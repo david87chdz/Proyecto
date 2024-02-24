@@ -16,6 +16,7 @@ return [
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
         '/juego' => [[['_route' => 'app_juego_index', '_controller' => 'App\\Controller\\JuegoController::index'], null, ['GET' => 0], null, true, false, null]],
         '/juego/insertarJuego' => [[['_route' => 'insertarJuego', '_controller' => 'App\\Controller\\JuegoController::insertarJuego'], null, ['POST' => 0], null, false, false, null]],
+        '/juego/modificaJuego' => [[['_route' => 'modificaJuego', '_controller' => 'App\\Controller\\JuegoController::modificaJuego'], null, ['POST' => 0, 'PUT' => 1], null, false, false, null]],
         '/juego/getJuegos' => [[['_route' => 'getJuegos', '_controller' => 'App\\Controller\\JuegoController::getTodas'], null, ['GET' => 0], null, false, false, null]],
         '/juego/new' => [[['_route' => 'app_juego_new', '_controller' => 'App\\Controller\\JuegoController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/mesa' => [[['_route' => 'app_mesa_index', '_controller' => 'App\\Controller\\MesaController::index'], null, ['GET' => 0], null, true, false, null]],
