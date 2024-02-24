@@ -22,6 +22,29 @@ class TipoMesaController extends AbstractController
         ]);
     }
 
+    #[Route('/getTipoMesa', name: 'getTipoMesa', methods: ['GET'])]
+    public function getTipoMesa(TipoMesaRepository $tipoMesaRepository, EntityManagerInterface $entityManager): Response
+    {   
+        $mesas = $tipoMesaRepository->findAll();
+        
+        $tipoMesasArray = [];
+        foreach ($mesas as $mesa) {
+            $tipoMesasArray[] = [
+                'id' => $mesa->getId(),
+                'ancho' => $mesa->getAncho(),
+                'largo' => $mesa->getLargo(),
+            ];
+        }
+    
+        $jsonResponse = json_encode($tipoMesasArray); // Corrección aquí
+    
+        $response = new Response($jsonResponse, Response::HTTP_OK);
+        $response->headers->set('Content-Type', 'application/json');
+        
+        return $response;
+    }
+    
+
     #[Route('/new', name: 'app_tipo_mesa_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {

@@ -501,7 +501,7 @@
     </service>
     <service id="argument_resolver.service" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
       <tag priority="-50" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">controller.argument_value_resolver</tag>
-      <argument type="service" id=".service_locator.YZnMORF"/>
+      <argument type="service" id=".service_locator.8NqELpD"/>
     </service>
     <service id="argument_resolver.default" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">
       <tag priority="-100" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">controller.argument_value_resolver</tag>
@@ -3382,7 +3382,7 @@
     </service>
     <service id="argument_resolver.not_tagged_controller" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
       <tag name="controller.argument_value_resolver" priority="-200"/>
-      <argument type="service" id=".service_locator.YZnMORF"/>
+      <argument type="service" id=".service_locator.8NqELpD"/>
     </service>
     <service id="debug.log_processor" class="Symfony\Bridge\Monolog\Processor\DebugProcessor">
       <tag name="kernel.reset" method="reset"/>
@@ -7484,6 +7484,13 @@
         <argument key="juegoRepository" type="service_closure" id="App\Repository\JuegoRepository"/>
       </argument>
     </service>
+    <service id=".service_locator.7d6bYQZ" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+        <argument key="tipoMesaRepository" type="service_closure" id="App\Repository\TipoMesaRepository"/>
+      </argument>
+    </service>
     <service id=".service_locator.CsMkqUa" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -7623,14 +7630,14 @@
         <argument key="usuario" type="service_closure" id=".errored..service_locator.aeGeJQa.App\Entity\Usuario"/>
       </argument>
     </service>
-    <service id=".service_locator.YZnMORF" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.8NqELpD" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\JuegoController::delete" type="service_closure" id=".service_locator.d4qBJN9"/>
         <argument key="App\Controller\JuegoController::edit" type="service_closure" id=".service_locator.d4qBJN9"/>
         <argument key="App\Controller\JuegoController::getTodas" type="service_closure" id=".service_locator.yYxWLqA"/>
         <argument key="App\Controller\JuegoController::index" type="service_closure" id=".service_locator.yYxWLqA"/>
-        <argument key="App\Controller\JuegoController::insertarJuego" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\JuegoController::insertarJuego" type="service_closure" id=".service_locator.7d6bYQZ"/>
         <argument key="App\Controller\JuegoController::modificaJuego" type="service_closure" id=".service_locator.CsMkqUa"/>
         <argument key="App\Controller\JuegoController::new" type="service_closure" id=".service_locator.CsMkqUa"/>
         <argument key="App\Controller\JuegoController::show" type="service_closure" id=".service_locator.RnT3SSH"/>
@@ -7655,6 +7662,7 @@
         <argument key="App\Controller\RolController::show" type="service_closure" id=".service_locator.EggCzqy"/>
         <argument key="App\Controller\TipoMesaController::delete" type="service_closure" id=".service_locator._u1C5vC"/>
         <argument key="App\Controller\TipoMesaController::edit" type="service_closure" id=".service_locator._u1C5vC"/>
+        <argument key="App\Controller\TipoMesaController::getTipoMesa" type="service_closure" id=".service_locator.7d6bYQZ"/>
         <argument key="App\Controller\TipoMesaController::index" type="service_closure" id=".service_locator.y5HIvDq"/>
         <argument key="App\Controller\TipoMesaController::new" type="service_closure" id=".service_locator.CsMkqUa"/>
         <argument key="App\Controller\TipoMesaController::show" type="service_closure" id=".service_locator.ksHHnsI"/>
@@ -7672,7 +7680,7 @@
         <argument key="App\Controller\JuegoController:edit" type="service_closure" id=".service_locator.d4qBJN9"/>
         <argument key="App\Controller\JuegoController:getTodas" type="service_closure" id=".service_locator.yYxWLqA"/>
         <argument key="App\Controller\JuegoController:index" type="service_closure" id=".service_locator.yYxWLqA"/>
-        <argument key="App\Controller\JuegoController:insertarJuego" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\JuegoController:insertarJuego" type="service_closure" id=".service_locator.7d6bYQZ"/>
         <argument key="App\Controller\JuegoController:modificaJuego" type="service_closure" id=".service_locator.CsMkqUa"/>
         <argument key="App\Controller\JuegoController:new" type="service_closure" id=".service_locator.CsMkqUa"/>
         <argument key="App\Controller\JuegoController:show" type="service_closure" id=".service_locator.RnT3SSH"/>
@@ -7697,6 +7705,7 @@
         <argument key="App\Controller\RolController:show" type="service_closure" id=".service_locator.EggCzqy"/>
         <argument key="App\Controller\TipoMesaController:delete" type="service_closure" id=".service_locator._u1C5vC"/>
         <argument key="App\Controller\TipoMesaController:edit" type="service_closure" id=".service_locator._u1C5vC"/>
+        <argument key="App\Controller\TipoMesaController:getTipoMesa" type="service_closure" id=".service_locator.7d6bYQZ"/>
         <argument key="App\Controller\TipoMesaController:index" type="service_closure" id=".service_locator.y5HIvDq"/>
         <argument key="App\Controller\TipoMesaController:new" type="service_closure" id=".service_locator.CsMkqUa"/>
         <argument key="App\Controller\TipoMesaController:show" type="service_closure" id=".service_locator.ksHHnsI"/>
@@ -9875,7 +9884,7 @@
     <service id="Psr\Log\LoggerInterface" alias="monolog.logger"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.bJ.4HC5" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.YZnMORF"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.8NqELpD"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.KLVvNIq"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
@@ -9919,6 +9928,7 @@
     <service id="security.event_dispatcher.main" alias="debug.security.event_dispatcher.main"/>
     <service id=".service_locator.gFlme_s" alias=".service_locator.y4_Zrx."/>
     <service id=".service_locator.24iku2m" alias=".service_locator.yYxWLqA"/>
+    <service id=".service_locator..YMRTVR" alias=".service_locator.7d6bYQZ"/>
     <service id=".service_locator.9e2t_lq" alias=".service_locator.CsMkqUa"/>
     <service id=".service_locator.2uwK2Bt" alias=".service_locator.RnT3SSH"/>
     <service id=".service_locator.f3pkX4v" alias=".service_locator.d4qBJN9"/>

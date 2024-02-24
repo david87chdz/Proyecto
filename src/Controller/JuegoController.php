@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Juego;
 use App\Form\JuegoType;
 use App\Repository\JuegoRepository;
+use App\Repository\TipoMesaRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -28,7 +29,8 @@ class JuegoController extends AbstractController
 
     
     #[Route('/insertarJuego', name: 'insertarJuego', methods: ['POST'])]
-    public function insertarJuego(Request $request, EntityManagerInterface $entityManager): Response
+    public function insertarJuego(Request $request, EntityManagerInterface $entityManager, 
+    TipoMesaRepository $tipoMesaRepository): Response
     {
         $data = json_decode($request->getContent(), true);
 
@@ -37,7 +39,8 @@ class JuegoController extends AbstractController
         $nuevoJuego->setNombre($data['nombre']);
         $nuevoJuego->setMinJug($data['min_jug']);
         $nuevoJuego->setMaxJug($data['max_jug']);
-        
+        $mesa=$tipoMesaRepository->find($data['id_mesa']);
+        $nuevoJuego->setTipomesa($mesa);
         // Resto de campos que locura con los objetos
 
         
@@ -83,7 +86,7 @@ class JuegoController extends AbstractController
         $juego->setNombre($nombre);
         $juego->setMaxJug($max_jug);
         $juego->setMinjug($min_jug);
-
+        
 
         $entityManager->flush();
 
