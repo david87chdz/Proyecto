@@ -21,6 +21,32 @@ class UsuarioRepository extends ServiceEntityRepository
         parent::__construct($registry, Usuario::class);
     }
 
+
+
+    /* public function rolSocio($nombreRol)
+    {
+        return $this->createQueryBuilder('u')
+    ->innerJoin('u.rol', 'r', 'WITH', 'r.nombre = :nombre')
+    ->setParameter('nombre', $nombreRol)
+    ->getQuery()
+    ->getOneOrNullResult();
+    } */
+
+    /**
+     * Función que nos devuelve el rol socio
+     */
+    public function rolSocio($nombreRol)
+    {
+    return $this->getEntityManager()
+        ->createQuery(
+            'SELECT r FROM App\Entity\Rol r WHERE r.nombre = :nombre'
+        )
+        ->setParameter('nombre', $nombreRol)
+        ->getOneOrNullResult();
+    }
+}
+
+
 //    /**
 //     * @return Usuario[] Returns an array of Usuario objects
 //     */
@@ -45,4 +71,4 @@ class UsuarioRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
-}
+//}

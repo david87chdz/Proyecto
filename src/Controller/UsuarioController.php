@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Usuario;
 use App\Form\UsuarioType;
 use App\Repository\UsuarioRepository;
+//use App\Repository\RolRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -65,6 +66,42 @@ class UsuarioController extends AbstractController
         return $response;
     }
 
+    #[Route('/crearUsuario', name: 'crearUsuario', methods: ['POST'])]
+    public function crearUsuario(Request $request, EntityManagerInterface $entityManager, UsuarioRepository $usuarioRepository): Response
+    {
+        $data = json_decode($request->getContent(), true);
+        $nombre = $data['nombre'];
+        $apellidos =$data['apellidos'];
+        $nickname = $data['nickname'];
+        $password = password_hash($data['password'], PASSWORD_DEFAULT);
+        $rol = $usuarioRepository->rolSocio('Socio');
+        
+        $nuevoUsuario= new Usuario();
+        $nuevoUsuario= $nuevoUsuario->setNombre($nombre);
+        $nuevoUsuario->setApellidos($apellidos);
+        $nuevoUsuario->setNickname($nickname);
+        $nuevoUsuario->setPassword($password);
+        $nuevoUsuario->setPuntuacion(0);
+        $nuevoUsuario->setRol($rol);
+
+        $entityManager->persist($nuevoUsuario);
+        $entityManager->flush();
+        //creamos por defecto
+        //$nuevoUsuario->setRol(2);
+
+        $responseData = [
+            'mensaje' => 'Usuario insertado correctamente'
+        ];
+        
+        $jsonResponse = json_encode($responseData);
+        
+        $response = new Response($jsonResponse, Response::HTTP_CREATED);
+        $response->headers->set('Content-Type', 'application/json');
+        
+        return $response;
+
+     
+    }
 
     #[Route('/new', name: 'app_usuario_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
