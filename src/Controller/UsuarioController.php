@@ -33,18 +33,24 @@ class UsuarioController extends AbstractController
         $data = json_decode($request->getContent(), true);
 
         $nickname = $data['nickname'];
+        //$password = $data['password'];
         $password = $data['password'];
-
+        
         $query = $usuarioRepository->createQueryBuilder('u')
             ->where('u.nickname = :nickname')
             ->andWhere('u.password = :password')
             ->setParameter('nickname', $nickname)
             ->setParameter('password', $password)
             ->getQuery();
-
+     /*        $query = $usuarioRepository->createQueryBuilder('u')
+    ->where('u.nickname = :nickname')
+    ->setParameter('nickname', $nickname)
+    ->getQuery();
+ */
             $user = $query->getOneOrNullResult();
-
-        if ($user) {
+        //if()
+        /* if (password_verify($password, $user->getPassword())) */ 
+        if($user){
             $responseData = [
                 'usuario' => $user->getRol()->getNombre(),
                 'id' => $user->getId(),
@@ -90,7 +96,10 @@ class UsuarioController extends AbstractController
         //$nuevoUsuario->setRol(2);
 
         $responseData = [
-            'mensaje' => 'Usuario insertado correctamente'
+            'mensaje' => 'Usuario insertado correctamente',
+            'usuario' => $nuevoUsuario->getRol()->getNombre(),
+            'id' => $nuevoUsuario->getId(),
+            'fecha' => date("F j, Y, g:i a") 
         ];
         
         $jsonResponse = json_encode($responseData);
