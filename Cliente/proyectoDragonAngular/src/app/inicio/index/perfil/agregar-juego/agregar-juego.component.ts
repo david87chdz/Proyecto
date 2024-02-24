@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { JuegosService } from '../../../../juegos.service';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { MesasService } from '../../../../mesas.service';
 
 @Component({
   selector: 'app-agregar-juego',
@@ -27,8 +28,13 @@ export class AgregarJuegoComponent {
     imagen: new FormControl('')
   })
 
-  constructor(private juegosService: JuegosService){
+  tipoMesa!: any;
 
+  constructor(private juegosService: JuegosService, private tipoMesas: MesasService){
+    this.tipoMesas.tipomesas()
+    .subscribe(result =>
+      this.tipoMesa=result
+      )
   }
 
  
@@ -38,15 +44,11 @@ export class AgregarJuegoComponent {
  
 
   nuevoJuego: any = {
-    nombre: 'Neo',
+    nombre: 'Julian',
     min_jug: 2,
     max_jug: 4,
-    imagen: {
-      nombreArchivo: 'nombre_de_la_imagen.jpg', // Nombre de archivo
-      tipoMIME: 'image/jpeg', // Tipo MIME de la imagen
-      datos: ""/* Aquí irían los datos binarios de la imagen */ // Datos binarios de la imagen
-    }
-    // Otros campos si los tienes
+    id_mesa: 1
+
   };
 
 

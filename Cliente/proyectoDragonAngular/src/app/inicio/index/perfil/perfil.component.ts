@@ -16,8 +16,8 @@ export class PerfilComponent {
   rol=true;
   usuario="admin";
 
-nombre= 'Miguel';
-apellidos='Cuevas buron';
+  nombre= localStorage.getItem('nombre');
+  apellidos='Cuevas buron';
 
   constructor(){
     

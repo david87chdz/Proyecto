@@ -6,23 +6,23 @@
         <div class="card-header">
           <h1>Modificar Juego</h1>
           <div class="card-body">
-          <form>
+          <form [formGroup]="formJuego" (submit)="modificar()">
     <div class="form-group">
       <label for="nombre">Nombre del juego:</label>
-      <input type="text" id="nombre" name="nombre" class="form-control" required>
+      <input type="text" id="nombre" name="nombre" class="form-control" formControlName="nombre" required>
     </div>
     <div class="form-group">
       <label for="max_jug">Máximo de jugadores:</label>
-      <input type="number" id="max_jug" name="max_jug" class="form-control" required>
+      <input type="number" id="max_jug" name="max_jug" class="form-control" formControlName="max_jug" required>
     </div>
     <div class="form-group">
       <label for="min_jug">Mínimo de jugadores:</label>
-      <input type="number" id="min_jug" name="min_jug" class="form-control" required>
+      <input type="number" id="min_jug" name="min_jug" class="form-control" formControlName="min_jug" required>
     </div>
-    <div class="form-group">
+   <!--  <div class="form-group">
       <label for="tipomesa">Tipo de mesa:</label>
       <input type="text" id="tipomesa" name="tipomesa" class="form-control" required>
-    </div><br>
+    </div><br> -->
     <button type="submit" class="form-control btn ">Modificar juego</button>
   </form>
           </div>

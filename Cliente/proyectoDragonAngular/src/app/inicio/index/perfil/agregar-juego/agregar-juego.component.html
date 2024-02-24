@@ -19,9 +19,9 @@
                 </div>
                 <label>Tipo de mesa:</label>
                 <select class="form-control" formControlName="mesa">
-                    <option>Pequeña</option>
-                    <option>Mediana</option>
-                    <option>Grande</option>
+                  @for(mesa of tipoMesa; track mesa.id){
+                    <option value="{{mesa.id}}">{{mesa.ancho}}x{{mesa.largo}}</option>
+                  }
                 </select><br>
                 <label>Imagen:</label>
                 <div class="form-group">

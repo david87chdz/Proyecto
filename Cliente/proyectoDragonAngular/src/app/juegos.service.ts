@@ -26,5 +26,20 @@ export class JuegosService {
       }
     );
   }
+
+  modificarJuego(juego:any){
+    let jsonData = JSON.stringify(juego);
+    console.log(jsonData)
+    return this.http.put("http://127.0.0.1:8000/juego/modificaJuego", jsonData)
+    .subscribe(
+      response => {
+        console.log("Juego Modificado correctamente:", response);
+       
+      },
+      error => {
+        console.error("Error al Modificar juego:", error);
+      }
+    );
+  }
 }
  

@@ -4,7 +4,7 @@
 @for(juego of juegos;track $index){
     <div class="card" style="width:500px;height: 200px; margin:3rem" >
         <h1>{{juego.nombre}}</h1>
-        
+        <img src="data:image/png;base64,{{juego.imagen}}" alt="">
          <!-- <button type="submit" class="btn btn-primary" (click)="modificar(juego.id)" >Modificar Juego</button>  -->
         <button type="submit" class="btn " routerLink="../modificar/{{juego.id}}" >Modificar Juego</button>
     </div>

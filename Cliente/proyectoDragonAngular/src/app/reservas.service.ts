@@ -17,6 +17,24 @@ export class ReservasService {
     return this.http.get<Reserva[]>(this.reservasURL);
   }
 
+
+  aniadirReserva(reserva:any){
+    let jsonData = JSON.stringify(reserva);
+    return this.http.post("http://127.0.0.1:8000/reserva/aniadirReserva", reserva)
+    .subscribe(
+      response => {
+        //return response;
+        this.reservas=response;
+        console.log("Reserva insertada correctamente:", this.reservas);
+        //console.log(response)
+      },
+      error => {
+        console.error("Reserva No ok:", error);
+      }
+    );
+  }
+
+
   mostrarReservas() {
     //let jsonData = JSON.stringify();
     //let id=localStorage.getItem('id');
@@ -38,5 +56,18 @@ export class ReservasService {
     );
   }
 
-
+  anularReserva(id:any){
+    return this.http.put("http://127.0.0.1:8000/reserva/cambiarReserva", id)
+    .subscribe(
+      response => {
+        //return response;
+        this.reservas=response;
+        console.log("Reserva Cambiada correctamente:", this.reservas);
+        //console.log(response)
+      },
+      error => {
+        console.error("No se cambio la reserva:", error);
+      }
+    );
+  }
 }

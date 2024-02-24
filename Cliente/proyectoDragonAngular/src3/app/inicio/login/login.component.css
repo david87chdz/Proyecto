@@ -1,0 +1,28 @@
+.card-header{
+    background-color: rgb(255, 92, 92);
+}
+input{
+    background-color: rgb(255, 145, 145);
+    opacity: 0.6;
+}
+
+.card{
+    border: 1px solid black;
+}
+.btn{
+    background-color: rgb(236, 74, 74);
+}
+#logospain{
+    width: 100px;
+}
+.logo{
+    position: absolute;
+    margin: 8px;
+    left:0;
+    top:0;
+}
+header{
+    position: relative;
+    height: 80px;
+    background-color: rgb(126, 0, 0);
+}

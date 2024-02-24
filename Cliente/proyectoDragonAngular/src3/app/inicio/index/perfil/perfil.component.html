@@ -1,0 +1,14 @@
+<div>
+    <h1>Nombre: {{nombre}}</h1>
+    <h1>Apellidos: {{apellidos}}</h1>
+    @if(esAdmin(usuario)){
+        <button   class="btn "  routerLink="agregar">Agregar Juego</button> <br>
+        <button  class="btn "   routerLink="buscar">Buscar juego</button>
+    }
+  
+</div>
+<div class="cont">
+    @if(esAdmin(usuario)){
+    <router-outlet></router-outlet>
+    }
+</div>

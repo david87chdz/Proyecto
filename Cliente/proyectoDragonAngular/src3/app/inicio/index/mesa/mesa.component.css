@@ -1,0 +1,21 @@
+
+
+.card{
+    display: inline-block;
+    margin: 20px;
+    cursor: pointer;
+}
+.verde{
+    background-color: green;
+}
+.rojo{
+    background-color: red;
+}
+.tipo1{
+    width: 150px;
+    height: 150px;
+}
+.tipo2{
+    width: 350px;
+    height: 200px;
+}

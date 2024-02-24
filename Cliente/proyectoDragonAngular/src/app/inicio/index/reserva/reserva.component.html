@@ -14,7 +14,7 @@
             }
         </h3>
         @if(botonHabilitado(reserva.fecha_inicio)){
-            <button class="btn eliminar">Anular</button>
+            <button class="btn eliminar" (click)="cambiar(reserva.id_reserva)">Anular</button>
         }  
     </div>
 
