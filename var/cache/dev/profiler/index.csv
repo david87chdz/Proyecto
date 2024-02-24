@@ -1144,3 +1144,6 @@ ab76b9,127.0.0.1,POST,http://127.0.0.1:8000/usuario/crearUsuario,1708810393,,201
 9d2126,127.0.0.1,POST,http://127.0.0.1:8000/usuario/crearUsuario,1708810453,,201,request
 816793,127.0.0.1,POST,http://127.0.0.1:8000/usuario/buscarUsuario,1708810478,,200,request
 b1473a,127.0.0.1,POST,http://127.0.0.1:8000/usuario/buscarUsuario,1708810486,,200,request
+ec05fc,127.0.0.1,POST,http://127.0.0.1:8000/usuario/buscarUsuario,1708812027,,200,request
+73695f,127.0.0.1,GET,http://127.0.0.1:8000/juego/getJuegos,1708812581,,200,request
+cab6de,127.0.0.1,GET,http://127.0.0.1:8000/juego/getJuegos,1708812645,,200,request
