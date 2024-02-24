@@ -123,14 +123,47 @@ class ReservaController extends AbstractController
     }
 
 
-    #[Route('/listado', name: 'app_reserva_listado', methods: ['GET'])]
-    public function listado(ReservaRepository $reservaRepository): Response
+    #[Route('/cambiarReserva', name: 'cambiarReserva', methods: ['POST', 'PUT'])]
+    public function cambiarReserva(Request $request, EntityManagerInterface $entityManager): Response
     {
-        return $this->render('reserva/listado.html.twig', [
-            'reservasPropias' =>$reservaRepository->reservasUsuarios('Miguel'),
-            'reservasAdmin' =>$reservaRepository->reservasAdmin()
-        ]);
+        $data = json_decode($request->getContent(), true);
+    
+        $id = $data['id'];
+        
+        // Buscar la reserva por su ID
+        $reserva = $entityManager->getRepository(Reserva::class)->find($id);
+    
+        // Verificar si la reserva existe
+        if (!$reserva) {
+            throw $this->createNotFoundException('No se encontró ninguna reserva para el ID '.$id);
+        }
+    
+        // Obtener el usuario asociado a la reserva
+        $usuario = $reserva->getUsuario();
+    
+        // Actualizar la puntuación del usuario
+        $puntuacion = $usuario->getPuntuacion();
+        $usuario->setPuntuacion($puntuacion - 2);
+        $entityManager->persist($usuario);
+    
+        // Marcar la reserva como no completada
+        $reserva->setCompletada(1);
+        $entityManager->persist($reserva);
+    
+        // Guardar los cambios en la base de datos
+        $entityManager->flush();
+    
+        // Devolver una respuesta JSON
+        $responseData = [
+            'mensaje' => 'Reserva modificada correctamente'
+        ];
+        $jsonResponse = json_encode($responseData);
+        $response = new Response($jsonResponse, Response::HTTP_OK);
+        $response->headers->set('Content-Type', 'application/json');
+    
+        return $response;
     }
+    
 
     #[Route('/new', name: 'app_reserva_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response

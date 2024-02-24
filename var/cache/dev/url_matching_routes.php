@@ -25,7 +25,7 @@ return [
         '/reserva' => [[['_route' => 'app_reserva_index', '_controller' => 'App\\Controller\\ReservaController::index'], null, ['GET' => 0], null, true, false, null]],
         '/reserva/buscarReserva' => [[['_route' => 'buscarReserva', '_controller' => 'App\\Controller\\ReservaController::buscarReserva'], null, ['POST' => 0], null, false, false, null]],
         '/reserva/aniadirReserva' => [[['_route' => 'aniadirReserva', '_controller' => 'App\\Controller\\ReservaController::aniadirReserva'], null, ['POST' => 0], null, false, false, null]],
-        '/reserva/listado' => [[['_route' => 'app_reserva_listado', '_controller' => 'App\\Controller\\ReservaController::listado'], null, ['GET' => 0], null, false, false, null]],
+        '/reserva/cambiarReserva' => [[['_route' => 'cambiarReserva', '_controller' => 'App\\Controller\\ReservaController::cambiarReserva'], null, ['POST' => 0, 'PUT' => 1], null, false, false, null]],
         '/reserva/new' => [[['_route' => 'app_reserva_new', '_controller' => 'App\\Controller\\ReservaController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/rol' => [[['_route' => 'app_rol_index', '_controller' => 'App\\Controller\\RolController::index'], null, ['GET' => 0], null, true, false, null]],
         '/rol/new' => [[['_route' => 'app_rol_new', '_controller' => 'App\\Controller\\RolController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
