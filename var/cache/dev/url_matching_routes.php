@@ -30,7 +30,6 @@ return [
         '/rol/new' => [[['_route' => 'app_rol_new', '_controller' => 'App\\Controller\\RolController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/tipo/mesa' => [[['_route' => 'app_tipo_mesa_index', '_controller' => 'App\\Controller\\TipoMesaController::index'], null, ['GET' => 0], null, true, false, null]],
         '/tipo/mesa/new' => [[['_route' => 'app_tipo_mesa_new', '_controller' => 'App\\Controller\\TipoMesaController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        '/usuario' => [[['_route' => 'app_usuario_index', '_controller' => 'App\\Controller\\UsuarioController::index'], null, ['GET' => 0], null, true, false, null]],
         '/usuario/buscarUsuario' => [[['_route' => 'buscarUsuario', '_controller' => 'App\\Controller\\UsuarioController::buscarUsuario'], null, ['POST' => 0], null, false, false, null]],
         '/usuario/crearUsuario' => [[['_route' => 'crearUsuario', '_controller' => 'App\\Controller\\UsuarioController::crearUsuario'], null, ['POST' => 0], null, false, false, null]],
         '/usuario/new' => [[['_route' => 'app_usuario_new', '_controller' => 'App\\Controller\\UsuarioController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],

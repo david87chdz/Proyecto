@@ -11,6 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 #[Route('/usuario')]
 class UsuarioController extends AbstractController
@@ -18,7 +19,7 @@ class UsuarioController extends AbstractController
 
 
 
-    #[Route('/', name: 'app_usuario_index', methods: ['GET'])]
+    /* #[Route('/', name: 'app_usuario_index', methods: ['GET'])]
     public function index(UsuarioRepository $usuarioRepository): Response
     {
         return $this->render('usuario/index.html.twig', [
@@ -67,7 +68,44 @@ class UsuarioController extends AbstractController
     
         return $response;
     }
+ */
 
+ #[Route('/buscarUsuario', name: 'buscarUsuario', methods: ['POST'])]
+ public function buscarUsuario(Request $request, EntityManagerInterface $entityManager, UsuarioRepository $usuarioRepository): Response
+ {
+     $data = json_decode($request->getContent(), true);
+ 
+     $nickname = $data['nickname'];
+     $passwordProvided = $data['password'];
+     
+     // Buscar el usuario por el nickname
+     $user = $usuarioRepository->findOneBy(['nickname' => $nickname]);
+ 
+     
+     if($user && password_verify($passwordProvided, $user->getPassword())) {
+         $responseData = [
+             'usuario' => $user->getRol()->getNombre(),
+             'nombre'=> $user->getNickname(), 
+             'id' => $user->getId(),
+             'fecha' => date("F j, Y, g:i a") 
+         ];
+         $statusCode = Response::HTTP_OK;
+     } else {
+        //Podemos trabajar con ello para mostrar mensaje
+         $responseData = [
+             'mensaje' => 'Usuario no encontrado o contraseña incorrecta'
+         ];
+         $statusCode = Response::HTTP_NOT_FOUND;
+     }
+ 
+     $jsonResponse = json_encode($responseData);
+ 
+     $response = new Response($jsonResponse, $statusCode);
+     $response->headers->set('Content-Type', 'application/json');
+ 
+     return $response;
+ }
+ 
 /*     #[Route('/buscarUsuario', name: 'buscarUsuario', methods: ['POST'])]
 public function buscarUsuario(Request $request, EntityManagerInterface $entityManager, UsuarioRepository $usuarioRepository): Response
 {
