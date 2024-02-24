@@ -42,14 +42,9 @@ class UsuarioController extends AbstractController
             ->setParameter('nickname', $nickname)
             ->setParameter('password', $password)
             ->getQuery();
-     /*        $query = $usuarioRepository->createQueryBuilder('u')
-    ->where('u.nickname = :nickname')
-    ->setParameter('nickname', $nickname)
-    ->getQuery();
- */
+
             $user = $query->getOneOrNullResult();
-        //if()
-        /* if (password_verify($password, $user->getPassword())) */ 
+       
         if($user){
             $responseData = [
                 'usuario' => $user->getRol()->getNombre(),
@@ -71,6 +66,40 @@ class UsuarioController extends AbstractController
     
         return $response;
     }
+
+/*     #[Route('/buscarUsuario', name: 'buscarUsuario', methods: ['POST'])]
+public function buscarUsuario(Request $request, EntityManagerInterface $entityManager, UsuarioRepository $usuarioRepository): Response
+{
+    $data = json_decode($request->getContent(), true);
+
+    $nickname = $data['nickname'];
+    $password = $data['password'];
+
+    // Buscar el usuario por su apodo (nickname)
+    $user = $usuarioRepository->findOneBy(['nickname' => $nickname]);
+
+    if ($user && password_verify($password, $user->getPassword())) {
+        $responseData = [
+            'usuario' => $user->getRol()->getNombre(),
+            'id' => $user->getId(),
+            'fecha' => date("F j, Y, g:i a") 
+        ];
+        $statusCode = Response::HTTP_OK;
+    } else {
+        $responseData = [
+            'mensaje' => 'Usuario no encontrado o contraseña incorrecta'
+        ];
+        $statusCode = Response::HTTP_NOT_FOUND;
+    }
+
+    $jsonResponse = json_encode($responseData);
+
+    $response = new Response($jsonResponse, $statusCode);
+    $response->headers->set('Content-Type', 'application/json');
+
+    return $response;
+} */
+
 
     #[Route('/crearUsuario', name: 'crearUsuario', methods: ['POST'])]
     public function crearUsuario(Request $request, EntityManagerInterface $entityManager, UsuarioRepository $usuarioRepository): Response
