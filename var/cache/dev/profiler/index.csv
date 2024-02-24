@@ -1192,3 +1192,8 @@ eb1e97,127.0.0.1,OPTIONS,http://127.0.0.1:8000/reserva/buscarReserva,1708816771,
 a563a0,127.0.0.1,POST,http://127.0.0.1:8000/reserva/buscarReserva,1708816772,,200,request
 bf3518,127.0.0.1,GET,http://127.0.0.1:8000/mesa/getMesas,1708816773,,200,request
 1f557d,127.0.0.1,GET,http://127.0.0.1:8000/juego/getJuegos,1708816776,,200,request
+c5aa5c,127.0.0.1,POST,http://127.0.0.1:8000/reserva/buscarReserva,1708817031,,200,request
+6a244d,127.0.0.1,GET,http://127.0.0.1:8000/mesa/getMesas,1708817033,,200,request
+9f472e,127.0.0.1,GET,http://127.0.0.1:8000/juego/getJuegos,1708817035,,200,request
+69567a,127.0.0.1,OPTIONS,http://127.0.0.1:8000/reserva/aniadirReserva,1708817053,,200,request
+568ce8,127.0.0.1,POST,http://127.0.0.1:8000/reserva/aniadirReserva,1708817054,,200,request

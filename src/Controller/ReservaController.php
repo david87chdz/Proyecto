@@ -88,7 +88,9 @@ class ReservaController extends AbstractController
         //$juego = $entityManagerentity-($juego_id);
         $mesa = $mesaRepository->mesaId($mesa_id);
         $usuario = $usuarioRepository->usuarioId($usuario_id);
-    
+        $puntuacion=$usuario->getPuntuacion();
+        
+        
         $reserva = new Reserva();
     
         $reserva->setFechaInicio($fecha_inicio);
@@ -103,7 +105,10 @@ class ReservaController extends AbstractController
         $responseData = [];
     
         if ($reserva->getId()) {
-            // Si se insertó correctamente
+            //Añadimos puntuación
+            $usuario->setPuntuacion($puntuacion+1);
+            $entityManager->persist($usuario);
+            $entityManager->flush();
             $mensaje = 'La reserva se ha insertado correctamente.';
             $statusCode = Response::HTTP_OK;
         } else {
