@@ -906,3 +906,11 @@ a13614,127.0.0.1,GET,http://127.0.0.1:8000/mesa/getMesas,1708898837,,200,request
 01f834,127.0.0.1,GET,http://127.0.0.1:8000/juego/getJuegos,1708898840,,200,request
 a8628a,127.0.0.1,GET,http://127.0.0.1:8000/juego/getJuegos,1708899454,,200,request
 4cbed1,127.0.0.1,GET,http://127.0.0.1:8000/juego/getJuegos,1708899459,,200,request
+d13b63,127.0.0.1,POST,http://127.0.0.1:8000/usuario/buscarUsuario,1708899984,,200,request
+0de6b8,127.0.0.1,GET,http://127.0.0.1:8000/mesa/getMesas,1708900004,,200,request
+d2fcf1,127.0.0.1,GET,http://127.0.0.1:8000/juego/getJuegos,1708900006,,200,request
+f9f589,127.0.0.1,POST,http://127.0.0.1:8000/reserva/aniadirReserva,1708900015,,200,request
+83cdde,127.0.0.1,GET,http://127.0.0.1:8000/mesa/getMesas,1708900015,,200,request
+b7bf2f,127.0.0.1,OPTIONS,http://127.0.0.1:8000/reserva/buscarReserva,1708900022,,200,request
+42c641,127.0.0.1,POST,http://127.0.0.1:8000/reserva/buscarReserva,1708900022,,200,request
+2d6e0a,127.0.0.1,POST,http://127.0.0.1:8000/usuario/buscarUsuario,1708900045,,200,request
