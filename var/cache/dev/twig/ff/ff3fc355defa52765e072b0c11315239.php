@@ -149,6 +149,6 @@ class __TwigTemplate_0e69550aaba816afa3f12076c92e8f54 extends Template
 
     {{ include('usuario/_delete_form.html.twig') }}
 {% endblock %}
-", "usuario/edit.html.twig", "S:\\OneDrive - Educacyl\\2ºDAW\\Proyecto\\Servidor\\proyectoDragon\\templates\\usuario\\edit.html.twig");
+", "usuario/edit.html.twig", "C:\\Users\\USUARIO\\Desktop\\Proyec\\Proyecto\\templates\\usuario\\edit.html.twig");
     }
 }

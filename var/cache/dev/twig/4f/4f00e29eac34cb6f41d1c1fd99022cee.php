@@ -142,6 +142,6 @@ class __TwigTemplate_f4fcef7cd142427ba32220132283d295 extends Template
 
     <a href=\"{{ path('app_reserva_index') }}\">back to list</a>
 {% endblock %}
-", "reserva/new.html.twig", "S:\\OneDrive - Educacyl\\2ºDAW\\Proyecto\\Servidor\\proyectoDragon\\templates\\reserva\\new.html.twig");
+", "reserva/new.html.twig", "C:\\Users\\USUARIO\\Desktop\\Proyec\\Proyecto\\templates\\reserva\\new.html.twig");
     }
 }

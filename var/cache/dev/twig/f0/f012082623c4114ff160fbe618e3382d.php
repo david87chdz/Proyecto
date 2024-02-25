@@ -242,6 +242,6 @@ class __TwigTemplate_b5b6e3d46c7f72523a3ad7af1abdbd1e extends Template
 
     <a href=\"{{ path('app_usuario_new') }}\">Create new</a>
 {% endblock %}
-", "usuario/index.html.twig", "C:\\Users\\Alumno\\Desktop\\Proyecto\\templates\\usuario\\index.html.twig");
+", "usuario/index.html.twig", "C:\\Users\\USUARIO\\Desktop\\Proyec\\Proyecto\\templates\\usuario\\index.html.twig");
     }
 }

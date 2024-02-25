@@ -142,6 +142,6 @@ class __TwigTemplate_e481f975a4d70734529682424bd1f05e extends Template
 
     <a href=\"{{ path('app_rol_index') }}\">back to list</a>
 {% endblock %}
-", "rol/new.html.twig", "S:\\OneDrive - Educacyl\\2ºDAW\\Proyecto\\Servidor\\proyectoDragon\\templates\\rol\\new.html.twig");
+", "rol/new.html.twig", "C:\\Users\\USUARIO\\Desktop\\Proyec\\Proyecto\\templates\\rol\\new.html.twig");
     }
 }

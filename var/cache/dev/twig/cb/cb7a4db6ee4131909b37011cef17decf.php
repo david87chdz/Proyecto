@@ -88,6 +88,6 @@ class __TwigTemplate_1fa51e8d874cae2095a08b4081708394 extends Template
     <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ tipo_mesa.id) }}\">
     <button class=\"btn\">Delete</button>
 </form>
-", "tipo_mesa/_delete_form.html.twig", "S:\\OneDrive - Educacyl\\2ºDAW\\Proyecto\\Servidor\\proyectoDragon\\templates\\tipo_mesa\\_delete_form.html.twig");
+", "tipo_mesa/_delete_form.html.twig", "C:\\Users\\USUARIO\\Desktop\\Proyec\\Proyecto\\templates\\tipo_mesa\\_delete_form.html.twig");
     }
 }

@@ -221,6 +221,6 @@ class __TwigTemplate_2d8ee1711239029bf2f7d3e15ee19986 extends Template
 
     <a href=\"{{ path('app_tipo_mesa_new') }}\">Create new</a>
 {% endblock %}
-", "tipo_mesa/index.html.twig", "S:\\OneDrive - Educacyl\\2ºDAW\\Proyecto\\Servidor\\proyectoDragon\\templates\\tipo_mesa\\index.html.twig");
+", "tipo_mesa/index.html.twig", "C:\\Users\\USUARIO\\Desktop\\Proyec\\Proyecto\\templates\\tipo_mesa\\index.html.twig");
     }
 }

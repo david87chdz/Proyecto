@@ -93,6 +93,6 @@ class __TwigTemplate_cef52e993cb375a7686eda412eceed5b extends Template
     {{ form_widget(form) }}
     <button class=\"btn\">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
-", "mesa/_form.html.twig", "S:\\OneDrive - Educacyl\\2ºDAW\\Proyecto\\Servidor\\proyectoDragon\\templates\\mesa\\_form.html.twig");
+", "mesa/_form.html.twig", "C:\\Users\\USUARIO\\Desktop\\Proyec\\Proyecto\\templates\\mesa\\_form.html.twig");
     }
 }

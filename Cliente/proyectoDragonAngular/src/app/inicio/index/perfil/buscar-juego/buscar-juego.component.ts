@@ -45,7 +45,7 @@ export class BuscarJuegoComponent {
   ] */
 
   juegos!:any;
-  
+  usuario= localStorage.getItem('usuario')
 constructor(private router:Router, private juegosService: JuegosService){
   this.juegosService.retornar()
   .subscribe(result => 
@@ -56,6 +56,16 @@ constructor(private router:Router, private juegosService: JuegosService){
 
 modificar(id : number){
   this.router.navigate((['/modificar',id]));
+}
+
+esAdmin(){
+
+  if(this.usuario=='Admin'){
+    return true;
+  }else{
+    return false;
+  }
+
 }
 
 }

@@ -14,17 +14,19 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 export class PerfilComponent {
 
   rol=true;
-  usuario="admin";
+  usuario=localStorage.getItem('usuario');
 
   nombre= localStorage.getItem('nombre');
-  apellidos='Cuevas buron';
+  puntuacion= localStorage.getItem('puntuacion');
+  //apellidos='Cuevas buron';
 
   constructor(){
     
   }
 
-  esAdmin(usuario: string){
-    if(usuario==='admin'){
+  esAdmin(){
+
+    if(this.usuario=='Admin'){
       return true;
     }else{
       return false;

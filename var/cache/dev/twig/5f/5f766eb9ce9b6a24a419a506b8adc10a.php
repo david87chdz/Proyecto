@@ -88,6 +88,6 @@ class __TwigTemplate_7e14836d9e1acf3eebeb4b1e36ad4adb extends Template
     <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ mesa.id) }}\">
     <button class=\"btn\">Delete</button>
 </form>
-", "mesa/_delete_form.html.twig", "S:\\OneDrive - Educacyl\\2ºDAW\\Proyecto\\Servidor\\proyectoDragon\\templates\\mesa\\_delete_form.html.twig");
+", "mesa/_delete_form.html.twig", "C:\\Users\\USUARIO\\Desktop\\Proyec\\Proyecto\\templates\\mesa\\_delete_form.html.twig");
     }
 }

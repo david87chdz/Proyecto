@@ -214,6 +214,6 @@ class __TwigTemplate_7d36f381a186791b48021c06c854ebaa extends Template
 
     {{ include('juego/_delete_form.html.twig') }}
 {% endblock %}
-", "juego/show.html.twig", "S:\\OneDrive - Educacyl\\2ºDAW\\Proyecto\\Servidor\\proyectoDragon\\templates\\juego\\show.html.twig");
+", "juego/show.html.twig", "C:\\Users\\USUARIO\\Desktop\\Proyec\\Proyecto\\templates\\juego\\show.html.twig");
     }
 }

@@ -1,5 +1,3 @@
-
-
 .card{
     display: inline-block;
     margin: 20px;
@@ -19,3 +17,29 @@
     width: 350px;
     height: 200px;
 }
+.verde:hover{
+    background-image: linear-gradient(to right, green,rgb(25, 160, 25),rgb(74, 199, 74),green);
+    animation:slidebg 2s linear infinite;
+ 
+}
+.rojo:hover{
+    background-image: linear-gradient(to right, red, orange,rgb(255, 102, 0), red);
+  animation:slidebg 2s linear infinite;
+ 
+}
+ 
+@keyframes slidebg {
+    to {
+      background-position:20vw;
+    }
+  }
+ 
+  .follow{
+    margin-top: 40px;
+  }
+ 
+  .follow a{
+    color: black;
+    padding: 8px 16px;
+    text-decoration: none;
+  }

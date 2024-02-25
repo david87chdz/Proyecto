@@ -142,6 +142,6 @@ class __TwigTemplate_5255c6f16201329f72a6e59de5578a01 extends Template
 
     <a href=\"{{ path('app_tipo_mesa_index') }}\">back to list</a>
 {% endblock %}
-", "tipo_mesa/new.html.twig", "S:\\OneDrive - Educacyl\\2ºDAW\\Proyecto\\Servidor\\proyectoDragon\\templates\\tipo_mesa\\new.html.twig");
+", "tipo_mesa/new.html.twig", "C:\\Users\\USUARIO\\Desktop\\Proyec\\Proyecto\\templates\\tipo_mesa\\new.html.twig");
     }
 }

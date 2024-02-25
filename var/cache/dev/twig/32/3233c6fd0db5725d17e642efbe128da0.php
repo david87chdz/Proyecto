@@ -214,6 +214,6 @@ class __TwigTemplate_5c792c374ce83387e8c529b6f25b64d9 extends Template
 
     <a href=\"{{ path('app_rol_new') }}\">Create new</a>
 {% endblock %}
-", "rol/index.html.twig", "S:\\OneDrive - Educacyl\\2ºDAW\\Proyecto\\Servidor\\proyectoDragon\\templates\\rol\\index.html.twig");
+", "rol/index.html.twig", "C:\\Users\\USUARIO\\Desktop\\Proyec\\Proyecto\\templates\\rol\\index.html.twig");
     }
 }

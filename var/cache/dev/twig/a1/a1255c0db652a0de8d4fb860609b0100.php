@@ -149,6 +149,6 @@ class __TwigTemplate_cb7c1402e1d110a41cff3e3dbcfa6ebd extends Template
 
     {{ include('rol/_delete_form.html.twig') }}
 {% endblock %}
-", "rol/edit.html.twig", "S:\\OneDrive - Educacyl\\2ºDAW\\Proyecto\\Servidor\\proyectoDragon\\templates\\rol\\edit.html.twig");
+", "rol/edit.html.twig", "C:\\Users\\USUARIO\\Desktop\\Proyec\\Proyecto\\templates\\rol\\edit.html.twig");
     }
 }

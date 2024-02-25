@@ -93,6 +93,6 @@ class __TwigTemplate_0cc8893969faff6e297996519bd2766b extends Template
     {{ form_widget(form) }}
     <button class=\"btn\">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
-", "rol/_form.html.twig", "S:\\OneDrive - Educacyl\\2ºDAW\\Proyecto\\Servidor\\proyectoDragon\\templates\\rol\\_form.html.twig");
+", "rol/_form.html.twig", "C:\\Users\\USUARIO\\Desktop\\Proyec\\Proyecto\\templates\\rol\\_form.html.twig");
     }
 }

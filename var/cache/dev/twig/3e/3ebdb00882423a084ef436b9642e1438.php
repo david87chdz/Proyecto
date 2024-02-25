@@ -149,6 +149,6 @@ class __TwigTemplate_08008fa144e9841808ae1635a3ed1ff5 extends Template
 
     {{ include('mesa/_delete_form.html.twig') }}
 {% endblock %}
-", "mesa/edit.html.twig", "S:\\OneDrive - Educacyl\\2ºDAW\\Proyecto\\Servidor\\proyectoDragon\\templates\\mesa\\edit.html.twig");
+", "mesa/edit.html.twig", "C:\\Users\\USUARIO\\Desktop\\Proyec\\Proyecto\\templates\\mesa\\edit.html.twig");
     }
 }

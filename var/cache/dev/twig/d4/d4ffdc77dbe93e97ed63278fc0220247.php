@@ -149,6 +149,6 @@ class __TwigTemplate_a7f42bfde7e016c1bf29224c4b4f4a63 extends Template
 
     {{ include('reserva/_delete_form.html.twig') }}
 {% endblock %}
-", "reserva/edit.html.twig", "S:\\OneDrive - Educacyl\\2ºDAW\\Proyecto\\Servidor\\proyectoDragon\\templates\\reserva\\edit.html.twig");
+", "reserva/edit.html.twig", "C:\\Users\\USUARIO\\Desktop\\Proyec\\Proyecto\\templates\\reserva\\edit.html.twig");
     }
 }

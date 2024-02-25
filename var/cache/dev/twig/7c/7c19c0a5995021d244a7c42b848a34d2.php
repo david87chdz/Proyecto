@@ -284,6 +284,6 @@ class __TwigTemplate_b37ed84a66d0e7d88c002f95e143b117 extends Template
 
     <a href=\"{{ path('app_reserva_new') }}\">Create new</a>
 {% endblock %}
-", "reserva/index.html.twig", "S:\\OneDrive - Educacyl\\2ºDAW\\Proyecto\\Servidor\\proyectoDragon\\templates\\reserva\\index.html.twig");
+", "reserva/index.html.twig", "C:\\Users\\USUARIO\\Desktop\\Proyec\\Proyecto\\templates\\reserva\\index.html.twig");
     }
 }
