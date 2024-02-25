@@ -709,3 +709,6 @@ ef0452,127.0.0.1,POST,http://127.0.0.1:8000/reserva/buscarReserva,1708885057,,20
 966e19,127.0.0.1,GET,http://127.0.0.1:8000/juego/getJuegos,1708885158,,200,request
 28942f,127.0.0.1,GET,http://127.0.0.1:8000/juego/getJuegos,1708885346,,200,request
 243c8a,127.0.0.1,GET,http://127.0.0.1:8000/juego/getJuegos,1708885410,,200,request
+263c7b,127.0.0.1,GET,http://127.0.0.1:8000/juego/getJuegos,1708885570,,200,request
+f014a0,127.0.0.1,GET,http://127.0.0.1:8000/juego/getJuegos,1708885586,,200,request
+d6e354,127.0.0.1,GET,http://127.0.0.1:8000/juego/getJuegos,1708885595,,200,request
