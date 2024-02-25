@@ -11,9 +11,9 @@ import { ReservasService } from '../../../reservas.service';
   styleUrl: './reserva.component.css'
 })
 export class ReservaComponent {
-  reservas!:any;
-  titulo: string= 'Miguel'
-  //reservas2:any;
+  reservas:any;
+  //titulo: string= 'Miguel'
+
   constructor(private reservasService: ReservasService){
     //this.recuperar();
     
@@ -28,22 +28,14 @@ export class ReservaComponent {
     // Convertir fecha del JSON a fecha en JavaScript
     const fechaReserva: Date = new Date(fechaReservaJSON);
 
-    // Obtener la fecha actual
     const fechaActual: Date = new Date();
 
-    // Calcular la diferencia en milisegundos entre la fecha de reserva y la fecha actual
+    // Calculamos la diferencia en milisegundos
     const diferenciaMilisegundos: number = fechaReserva.getTime() - fechaActual.getTime();
 
-    // Calcular la diferencia en horas
+    // Calculamos la diferencia en horas
     const diferenciaHoras: number = diferenciaMilisegundos / (1000 * 60 * 60);
 
-    // Comprobación
-   /*  if (diferenciaHoras < 48) {
-    console.log('Faltan menos de 48 horas');
-    } else {
-      console.log('Faltan más de 48 horas');
-    } */
-   
     return diferenciaHoras >= 48; 
   }
 
@@ -53,7 +45,7 @@ export class ReservaComponent {
   }
     
   hayReservas(){
-    if (this.reservas === null || this.reservas === undefined) {
+    if (this.reservas.length === 0) {
       return true;
   } else {
       return false;

@@ -2,6 +2,7 @@
 <input type="text" [(ngModel)]="juego" style="margin-left: 15px; margin-top: 20px; width: 400px;">
 <div class="contenedor">
 @for(juego of juegos;track $index){
+    @if(buscar(juego.nombre)){
     <div class="card">
         <h1>{{juego.nombre}}</h1>
         <img src="data:image/png;base64,{{juego.imagen}}" alt="">
@@ -9,7 +10,7 @@
             <button type="submit" class="btn " routerLink="../modificar/{{juego.id}}" >Modificar Juego</button>
         }
     </div>
-
+    }
 }
 
 </div>

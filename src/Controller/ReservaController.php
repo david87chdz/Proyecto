@@ -33,7 +33,7 @@ class ReservaController extends AbstractController
     {
         $data = json_decode($request->getContent(), true);
         $id = $data['id'];
-
+    
         try {
             // Verificar si es administrador o socio
             if ($reservaRepository->admin($id) == 'Admin') {
@@ -41,10 +41,10 @@ class ReservaController extends AbstractController
             } else {
                 $reservas = $reservaRepository->reservasUsuarios($id);
             }
-
-            if ($reservas !== null) {
-                $responseData = [];
-
+        
+            $responseData = [];
+        
+            if (!empty($reservas)) {
                 foreach ($reservas as $reserva) {
                     $juegoNombre = $reserva->getJuego() ? $reserva->getJuego()->getNombre() : 'Juego no disponible';
                     $responseData[] = [
@@ -58,24 +58,24 @@ class ReservaController extends AbstractController
                         'anulada' => $reserva->isAnulada()
                     ];
                 }
-
                 $statusCode = Response::HTTP_OK;
             } else {
                 $responseData = [
-                    'mensaje' => 'No hay reservas para el usuario con id: ' . $id
+                    'mensaje' => 'No se encontraron reservas para el usuario con id: ' . $id
                 ];
-                //$statusCode = Response::HTTP_NOT_FOUND;
-                $statusCode = Response::HTTP_OK;
+                $statusCode = Response::HTTP_OK; // Cambiamos el estado a 200 (OK)
             }
         } catch (\Exception $e) {
-            /* $responseData = [
+            // evitamos el errot
+            $responseData = [
                 'error' => 'Error al buscar reservas: ' . $e->getMessage()
             ];
-            $statusCode = Response::HTTP_INTERNAL_SERVER_ERROR; */
+            $statusCode = Response::HTTP_OK; // Cambiamos el estado a 200 para q no de error
         }
-
+    
         return $this->json($responseData, $statusCode);
     }
+
 
 
 

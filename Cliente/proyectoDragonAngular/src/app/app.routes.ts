@@ -32,7 +32,7 @@ export const routes: Routes = [
     {
         path:'index',
         component:IndexComponent,
-        //canActivate: [usersGuard],
+        canActivate: [usersGuard],
         children:[
             {
                 path:'mesa',
