@@ -2,6 +2,7 @@
 body{
     background: url(assets/images/ciudadminimalista.jpg) no-repeat ; 
     background-size: cover;
+    min-height: 100lvh;
    height: auto;
 }
 .pie{
