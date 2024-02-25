@@ -17,6 +17,9 @@ class Reserva
     #[ORM\Column(nullable: true)]
     private ?bool $completada = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?bool $anulada = null;
+
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $fecha_inicio = null;
 
@@ -45,6 +48,18 @@ class Reserva
     public function setCompletada(?bool $completada): static
     {
         $this->completada = $completada;
+
+        return $this;
+    }
+
+    public function isAnulada(): ?bool
+    {
+        return $this->anulada;
+    }
+
+    public function setAnulada(?bool $anulada): static
+    {
+        $this->anulada = $anulada;
 
         return $this;
     }

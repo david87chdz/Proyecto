@@ -46,14 +46,16 @@ class ReservaController extends AbstractController
             $responseData = [];
 
             foreach ($reservas as $reserva) {
+                $juegoNombre = $reserva->getJuego() ? $reserva->getJuego()->getNombre() : 'Juego no disponible';
                 $responseData[] = [
                     'id_reserva' => $reserva->getId(),
                     'usuario' => $reserva->getUsuario()->getNombre(),
                     'mesa' => $reserva->getMesa()->getId(),
-                    'juego' => $reserva->getJuego()->getNombre(),
+                    'juego' => $juegoNombre,
                     'fecha_inicio' => $reserva->getFechaInicio()->format('Y-m-d H:i:s'),
                     'fecha_fin' => $reserva->getFechaFin()->format('Y-m-d H:i:s'),
                     'estado' => $reserva->isCompletada(),
+                    'anulada' => $reserva->isAnulada()
                 ];
             }
 
@@ -99,6 +101,7 @@ class ReservaController extends AbstractController
         $reserva->setMesa($mesa);
         $reserva->setJuego($juego);
         $reserva->setCompletada(0);
+        $reserva->setAnulada(0);
         $entityManager->persist($reserva);
         $entityManager->flush();
     
@@ -147,6 +150,7 @@ class ReservaController extends AbstractController
         $entityManager->persist($usuario);
     
         // Marcar la reserva como no completada
+        $reserva->setAnulada(1);
         $reserva->setCompletada(1);
         $entityManager->persist($reserva);
     
