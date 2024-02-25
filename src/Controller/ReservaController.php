@@ -66,11 +66,12 @@ class ReservaController extends AbstractController
                 $statusCode = Response::HTTP_OK; // Cambiamos el estado a 200 (OK)
             }
         } catch (\Exception $e) {
-            // evitamos el errot
+            // evitamos el error
             $responseData = [
                 'error' => 'Error al buscar reservas: ' . $e->getMessage()
             ];
-            $statusCode = Response::HTTP_OK; // Cambiamos el estado a 200 para q no de error
+            $statusCode = Response::HTTP_OK; 
+            // Cambiamos el estado a 200 para q no de error en consola
         }
     
         return $this->json($responseData, $statusCode);

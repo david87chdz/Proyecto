@@ -26,7 +26,7 @@ class TipoMesa extends \App\Entity\TipoMesa implements \Doctrine\ORM\Proxy\Inter
         'juegos' => [parent::class, 'juegos', null],
         'largo' => [parent::class, 'largo', null],
         'mesas' => [parent::class, 'mesas', null],
-    ];
+    ];
 
     public function __isInitialized(): bool
     {
