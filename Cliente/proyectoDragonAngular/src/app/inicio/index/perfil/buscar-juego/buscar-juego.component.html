@@ -7,8 +7,10 @@
         <h1>{{juego.nombre}}</h1>
         <img src="data:image/png;base64,{{juego.imagen}}" alt="">
         @if(esAdmin()){
-            <button type="submit" class="btn " routerLink="../modificar/{{juego.id}}" >Modificar Juego</button>
+            <button type="submit" class="btn m" routerLink="../modificar/{{juego.id}}" >Modificar Juego</button>
+            <button type="submit" class="btn d" (click)="borrar(juego.id)" >Borrar Juego</button>
         }
+        
     </div>
     }
 }

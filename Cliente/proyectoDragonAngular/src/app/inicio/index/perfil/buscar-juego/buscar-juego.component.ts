@@ -48,4 +48,10 @@ export class BuscarJuegoComponent {
       return false;
     }
   }
+
+  borrar(id:any){
+    if(confirm('Estas seguro de querer borrar el juego con el id' +id)){
+      this.juegosService.eliminarJuego(id);
+    }
+  }
 }

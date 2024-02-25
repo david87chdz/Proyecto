@@ -61,6 +61,23 @@ class JuegoController extends AbstractController
         return $response;
     }
 
+    #[Route('/{id}/eliminar', name: 'eliminar', methods: ['DELETE'])]
+    public function eliminar(Request $request, JuegoRepository $juegoRepository, EntityManagerInterface $entityManager, $id): Response
+    {
+        
+        $juego = $juegoRepository->find($id);
+        $entityManager->remove($juego);
+        $entityManager->flush();
+        
+        $responseData = [
+            'mensaje' => 'Juego Borrado'
+        ];
+        $jsonResponse = json_encode($responseData);
+        $response = new Response($jsonResponse, Response::HTTP_OK);
+        $response->headers->set('Content-Type', 'application/json');
+
+        return $response;
+    }
 
 
     #[Route('/modificaJuego', name: 'modificaJuego', methods: ['POST', 'PUT'])]

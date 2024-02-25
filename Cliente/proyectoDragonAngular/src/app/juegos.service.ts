@@ -41,5 +41,16 @@ export class JuegosService {
       }
     );
   }
+
+  eliminarJuego(idJuego: number) {
+    return this.http.delete(`http://127.0.0.1:8000/juego/${idJuego}/eliminar`)
+      .subscribe(
+        response => {
+          console.log("Juego eliminado correctamente:", response);
+        },
+        error => {
+          console.error("Error al eliminar juego:", error);
+        }
+      );
+  }
 }
- 

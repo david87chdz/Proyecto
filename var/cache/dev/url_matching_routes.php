@@ -57,36 +57,38 @@ return [
                     .')'
                 .')'
                 .'|/juego/([^/]++)(?'
-                    .'|(*:220)'
-                    .'|/edit(*:233)'
-                    .'|(*:241)'
+                    .'|/e(?'
+                        .'|liminar(*:232)'
+                        .'|dit(*:243)'
+                    .')'
+                    .'|(*:252)'
                 .')'
                 .'|/mesa/([^/]++)(?'
-                    .'|(*:267)'
-                    .'|/edit(*:280)'
-                    .'|(*:288)'
+                    .'|(*:278)'
+                    .'|/edit(*:291)'
+                    .'|(*:299)'
                 .')'
                 .'|/r(?'
                     .'|eserva/([^/]++)(?'
-                        .'|(*:320)'
-                        .'|/edit(*:333)'
-                        .'|(*:341)'
+                        .'|(*:331)'
+                        .'|/edit(*:344)'
+                        .'|(*:352)'
                     .')'
                     .'|ol/([^/]++)(?'
-                        .'|(*:364)'
-                        .'|/edit(*:377)'
-                        .'|(*:385)'
+                        .'|(*:375)'
+                        .'|/edit(*:388)'
+                        .'|(*:396)'
                     .')'
                 .')'
                 .'|/tipo/mesa/([^/]++)(?'
-                    .'|(*:417)'
-                    .'|/edit(*:430)'
-                    .'|(*:438)'
+                    .'|(*:428)'
+                    .'|/edit(*:441)'
+                    .'|(*:449)'
                 .')'
                 .'|/usuario/([^/]++)(?'
-                    .'|(*:467)'
-                    .'|/edit(*:480)'
-                    .'|(*:488)'
+                    .'|(*:478)'
+                    .'|/edit(*:491)'
+                    .'|(*:499)'
                 .')'
             .')/?$}sDu',
     ],
@@ -99,24 +101,27 @@ return [
         168 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         181 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         191 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        220 => [[['_route' => 'app_juego_show', '_controller' => 'App\\Controller\\JuegoController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        233 => [[['_route' => 'app_juego_edit', '_controller' => 'App\\Controller\\JuegoController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        241 => [[['_route' => 'app_juego_delete', '_controller' => 'App\\Controller\\JuegoController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        267 => [[['_route' => 'app_mesa_show', '_controller' => 'App\\Controller\\MesaController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        280 => [[['_route' => 'app_mesa_edit', '_controller' => 'App\\Controller\\MesaController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        288 => [[['_route' => 'app_mesa_delete', '_controller' => 'App\\Controller\\MesaController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        320 => [[['_route' => 'app_reserva_show', '_controller' => 'App\\Controller\\ReservaController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        333 => [[['_route' => 'app_reserva_edit', '_controller' => 'App\\Controller\\ReservaController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        341 => [[['_route' => 'app_reserva_delete', '_controller' => 'App\\Controller\\ReservaController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        364 => [[['_route' => 'app_rol_show', '_controller' => 'App\\Controller\\RolController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        377 => [[['_route' => 'app_rol_edit', '_controller' => 'App\\Controller\\RolController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        385 => [[['_route' => 'app_rol_delete', '_controller' => 'App\\Controller\\RolController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        417 => [[['_route' => 'app_tipo_mesa_show', '_controller' => 'App\\Controller\\TipoMesaController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        430 => [[['_route' => 'app_tipo_mesa_edit', '_controller' => 'App\\Controller\\TipoMesaController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        438 => [[['_route' => 'app_tipo_mesa_delete', '_controller' => 'App\\Controller\\TipoMesaController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        467 => [[['_route' => 'app_usuario_show', '_controller' => 'App\\Controller\\UsuarioController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        480 => [[['_route' => 'app_usuario_edit', '_controller' => 'App\\Controller\\UsuarioController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        488 => [
+        232 => [[['_route' => 'eliminar', '_controller' => 'App\\Controller\\JuegoController::eliminar'], ['id'], ['DELETE' => 0], null, false, false, null]],
+        243 => [[['_route' => 'app_juego_edit', '_controller' => 'App\\Controller\\JuegoController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        252 => [
+            [['_route' => 'app_juego_show', '_controller' => 'App\\Controller\\JuegoController::show'], ['id'], ['GET' => 0], null, false, true, null],
+            [['_route' => 'app_juego_delete', '_controller' => 'App\\Controller\\JuegoController::delete'], ['id'], ['POST' => 0], null, false, true, null],
+        ],
+        278 => [[['_route' => 'app_mesa_show', '_controller' => 'App\\Controller\\MesaController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        291 => [[['_route' => 'app_mesa_edit', '_controller' => 'App\\Controller\\MesaController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        299 => [[['_route' => 'app_mesa_delete', '_controller' => 'App\\Controller\\MesaController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        331 => [[['_route' => 'app_reserva_show', '_controller' => 'App\\Controller\\ReservaController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        344 => [[['_route' => 'app_reserva_edit', '_controller' => 'App\\Controller\\ReservaController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        352 => [[['_route' => 'app_reserva_delete', '_controller' => 'App\\Controller\\ReservaController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        375 => [[['_route' => 'app_rol_show', '_controller' => 'App\\Controller\\RolController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        388 => [[['_route' => 'app_rol_edit', '_controller' => 'App\\Controller\\RolController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        396 => [[['_route' => 'app_rol_delete', '_controller' => 'App\\Controller\\RolController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        428 => [[['_route' => 'app_tipo_mesa_show', '_controller' => 'App\\Controller\\TipoMesaController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        441 => [[['_route' => 'app_tipo_mesa_edit', '_controller' => 'App\\Controller\\TipoMesaController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        449 => [[['_route' => 'app_tipo_mesa_delete', '_controller' => 'App\\Controller\\TipoMesaController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        478 => [[['_route' => 'app_usuario_show', '_controller' => 'App\\Controller\\UsuarioController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        491 => [[['_route' => 'app_usuario_edit', '_controller' => 'App\\Controller\\UsuarioController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        499 => [
             [['_route' => 'app_usuario_delete', '_controller' => 'App\\Controller\\UsuarioController::delete'], ['id'], ['POST' => 0], null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

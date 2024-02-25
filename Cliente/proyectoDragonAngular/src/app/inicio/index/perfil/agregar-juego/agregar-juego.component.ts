@@ -29,6 +29,7 @@ export class AgregarJuegoComponent {
   })
 
   tipoMesa!: any;
+  nuevoJuego:any;
 
   constructor(private juegosService: JuegosService, private tipoMesas: MesasService){
     this.tipoMesas.tipomesas()
@@ -39,20 +40,25 @@ export class AgregarJuegoComponent {
 
  
 
+  insertarJuego() {
+    this.nuevoJuego = {
+      nombre: this.formJuego.value.nombre,
+      min_jug: this.formJuego.value.min_jug,
+      max_jug: this.formJuego.value.max_jug,
+      id_mesa: this.formJuego.value.mesa,
   
+    };
+    this.juegosService.insertarJuego(this.nuevoJuego)
+    console.log(this.nuevoJuego)
+    
+  }
   
  
 
-  nuevoJuego: any = {
-    nombre: 'Julian',
-    min_jug: 2,
-    max_jug: 4,
-    id_mesa: 1
-
-  };
+  
 
 
-  onFileSelected(event: any) {
+ /*  onFileSelected(event: any) {
     const file: File = event.target.files[0];
   
     if (file) {
@@ -82,19 +88,9 @@ export class AgregarJuegoComponent {
   
       reader.readAsArrayBuffer(file);
     });
-  }
-/*   nuevoJuego: any = {
-    nombre: 'Neo',
-    min_jug: 2,
-    max_jug: 4,
-    imagen: 
-    // Añadir el resto ¿Como meter los campos que son objetos?
-  }; */
+  } */
 
-  insertarJuego() {
-    this.juegosService.insertarJuego(this.nuevoJuego)
-    console.log(this.nuevoJuego)
-    
-  }
+
+
 
 }

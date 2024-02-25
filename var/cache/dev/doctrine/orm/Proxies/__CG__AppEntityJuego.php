@@ -30,7 +30,7 @@ class Juego extends \App\Entity\Juego implements \Doctrine\ORM\Proxy\InternalPro
         'nombre' => [parent::class, 'nombre', null],
         'reservas' => [parent::class, 'reservas', null],
         'tipomesa' => [parent::class, 'tipomesa', null],
-    ];
+    ];
 
     public function __isInitialized(): bool
     {

@@ -32,7 +32,7 @@ class Usuario extends \App\Entity\Usuario implements \Doctrine\ORM\Proxy\Interna
         'puntuacion' => [parent::class, 'puntuacion', null],
         'reservas' => [parent::class, 'reservas', null],
         'rol' => [parent::class, 'rol', null],
-    ];
+    ];
 
     public function __isInitialized(): bool
     {
