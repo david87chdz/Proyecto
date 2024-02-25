@@ -904,3 +904,5 @@ b56244,127.0.0.1,POST,http://127.0.0.1:8000/reserva/aniadirReserva,1708898759,,2
 5b895d,127.0.0.1,POST,http://127.0.0.1:8000/reserva/buscarReserva,1708898831,,200,request
 a13614,127.0.0.1,GET,http://127.0.0.1:8000/mesa/getMesas,1708898837,,200,request
 01f834,127.0.0.1,GET,http://127.0.0.1:8000/juego/getJuegos,1708898840,,200,request
+a8628a,127.0.0.1,GET,http://127.0.0.1:8000/juego/getJuegos,1708899454,,200,request
+4cbed1,127.0.0.1,GET,http://127.0.0.1:8000/juego/getJuegos,1708899459,,200,request
