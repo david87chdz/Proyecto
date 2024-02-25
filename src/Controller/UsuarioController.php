@@ -168,7 +168,8 @@ public function buscarUsuario(Request $request, EntityManagerInterface $entityMa
             'mensaje' => 'Usuario insertado correctamente',
             'usuario' => $nuevoUsuario->getRol()->getNombre(),
             'id' => $nuevoUsuario->getId(),
-            'fecha' => date("F j, Y, g:i a") 
+            'fecha' => date("F j, Y, g:i a") ,
+            'puntuacion' => $nuevoUsuario->getPuntuacion()
         ];
         
         $jsonResponse = json_encode($responseData);

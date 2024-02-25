@@ -52,7 +52,13 @@ export class ReservaComponent {
     this.reservasService.anularReserva(json);
   }
     
-
+  hayReservas(){
+    if (this.reservas === null || this.reservas === undefined) {
+      return true;
+  } else {
+      return false;
+  }
+  }
 
 
 }

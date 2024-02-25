@@ -34,41 +34,49 @@ class ReservaController extends AbstractController
         $data = json_decode($request->getContent(), true);
         $id = $data['id'];
 
-        //Para ver si es admin o socio
-        if($nombreRol=$reservaRepository->admin($id)=='Admin'){
-            $reservas=$reservaRepository->reservasAdmin();
-        }else{
-            $reservas= $reservaRepository->reservasUsuarios($id);
-        }
-        
-
-        if ($reservas) {
-            $responseData = [];
-
-            foreach ($reservas as $reserva) {
-                $juegoNombre = $reserva->getJuego() ? $reserva->getJuego()->getNombre() : 'Juego no disponible';
-                $responseData[] = [
-                    'id_reserva' => $reserva->getId(),
-                    'usuario' => $reserva->getUsuario()->getNombre(),
-                    'mesa' => $reserva->getMesa()->getId(),
-                    'juego' => $juegoNombre,
-                    'fecha_inicio' => $reserva->getFechaInicio()->format('Y-m-d H:i:s'),
-                    'fecha_fin' => $reserva->getFechaFin()->format('Y-m-d H:i:s'),
-                    'estado' => $reserva->isCompletada(),
-                    'anulada' => $reserva->isAnulada()
-                ];
+        try {
+            // Verificar si es administrador o socio
+            if ($reservaRepository->admin($id) == 'Admin') {
+                $reservas = $reservaRepository->reservasAdmin();
+            } else {
+                $reservas = $reservaRepository->reservasUsuarios($id);
             }
 
-            $statusCode = Response::HTTP_OK;
-        } else {
-            $responseData = [
-                'mensaje' => 'No se encontraron reservas para el usuario con id: ' . $id
+            if ($reservas !== null) {
+                $responseData = [];
+
+                foreach ($reservas as $reserva) {
+                    $juegoNombre = $reserva->getJuego() ? $reserva->getJuego()->getNombre() : 'Juego no disponible';
+                    $responseData[] = [
+                        'id_reserva' => $reserva->getId(),
+                        'usuario' => $reserva->getUsuario()->getNombre(),
+                        'mesa' => $reserva->getMesa()->getId(),
+                        'juego' => $juegoNombre,
+                        'fecha_inicio' => $reserva->getFechaInicio()->format('Y-m-d H:i:s'),
+                        'fecha_fin' => $reserva->getFechaFin()->format('Y-m-d H:i:s'),
+                        'estado' => $reserva->isCompletada(),
+                        'anulada' => $reserva->isAnulada()
+                    ];
+                }
+
+                $statusCode = Response::HTTP_OK;
+            } else {
+                $responseData = [
+                    'mensaje' => 'No hay reservas para el usuario con id: ' . $id
+                ];
+                //$statusCode = Response::HTTP_NOT_FOUND;
+                $statusCode = Response::HTTP_OK;
+            }
+        } catch (\Exception $e) {
+            /* $responseData = [
+                'error' => 'Error al buscar reservas: ' . $e->getMessage()
             ];
-            $statusCode = Response::HTTP_NOT_FOUND;
+            $statusCode = Response::HTTP_INTERNAL_SERVER_ERROR; */
         }
 
         return $this->json($responseData, $statusCode);
     }
+
 
 
     #[Route('/aniadirReserva', name: 'aniadirReserva', methods: ['POST'])]
@@ -90,7 +98,7 @@ class ReservaController extends AbstractController
         //$juego = $entityManagerentity-($juego_id);
         $mesa = $mesaRepository->mesaId($mesa_id);
         $usuario = $usuarioRepository->usuarioId($usuario_id);
-        $puntuacion=$usuario->getPuntuacion();
+        //$puntuacion=$usuario->getPuntuacion();
         
         
         $reserva = new Reserva();
@@ -109,7 +117,8 @@ class ReservaController extends AbstractController
     
         if ($reserva->getId()) {
             //Añadimos puntuación
-            $usuario->setPuntuacion($puntuacion+1);
+            $puntuacion = $usuario->getPuntuacion();
+            $usuario->setPuntuacion($puntuacion - 2);
             $entityManager->persist($usuario);
             $entityManager->flush();
             $mensaje = 'La reserva se ha insertado correctamente.';

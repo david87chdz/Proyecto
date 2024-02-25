@@ -21,6 +21,7 @@ export class UsuariosService {
         localStorage.setItem('nombre' , this.respuesta.nombre);
         localStorage.setItem('id', this.respuesta.id);
         localStorage.setItem('fecha', this.respuesta.fecha);
+        localStorage.setItem('puntuacion', this.respuesta.puntuacion);
       },
       error =>{
         console.log(error)
@@ -43,6 +44,7 @@ export class UsuariosService {
         localStorage.setItem('nombre' , this.respuesta.nombre);
         localStorage.setItem('id', this.respuesta.id);
         localStorage.setItem('fecha', this.respuesta.fecha);
+        localStorage.setItem('puntuacion', this.respuesta.puntuacion);
       },
       error => {
         console.log("Usuario:", error);

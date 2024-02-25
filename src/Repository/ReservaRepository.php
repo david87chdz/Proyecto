@@ -42,17 +42,19 @@ class ReservaRepository extends ServiceEntityRepository
     /**
      * Función que devuelve las reservas de un usuario ordenadas por
      * fecha
-     * @return array Returns an array of Reserva objects
+     * @return ?array Returns an array of Reserva objects
      */
-    public function reservasUsuarios($id): array
+    public function reservasUsuarios($id): ?array
     {
-        return $this->createQueryBuilder('r')
-        ->join('r.usuario', 'u')
-        ->where('u.id = :idUsuario')
-        ->setParameter('idUsuario', $id)
-        ->orderBy('r.fecha_inicio', 'ASC') // Asumiendo que 'fechaInicio' es el nombre de la propiedad en la entidad Reserva
-        ->getQuery()
-        ->getResult();
+        $reservas = $this->createQueryBuilder('r')
+            ->join('r.usuario', 'u')
+            ->where('u.id = :idUsuario')
+            ->setParameter('idUsuario', $id)
+            ->orderBy('r.fecha_inicio', 'ASC')
+            ->getQuery()
+            ->getResult();
+
+        return !empty($reservas) ? $reservas : null;
     }
 
 
