@@ -24,7 +24,7 @@ class Mesa extends \App\Entity\Mesa implements \Doctrine\ORM\Proxy\InternalProxy
         'id' => [parent::class, 'id', null],
         'reservas' => [parent::class, 'reservas', null],
         'tipomesa' => [parent::class, 'tipomesa', null],
-    ];
+    ];
 
     public function __isInitialized(): bool
     {

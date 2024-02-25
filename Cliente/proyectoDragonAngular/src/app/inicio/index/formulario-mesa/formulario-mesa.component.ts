@@ -38,10 +38,16 @@ export class FormularioMesaComponent {
 
   calcularHoraFin() {
     // Asegúrate de que this.formReserva.value.duracion tenga el valor esperado en horas
-    this.fechaHoraFin = new Date(this.fechaHoraInicio.getTime() + this.formReserva.value.duracion * 60 * 60 * 1000);
+    const duracionHoras = this.formReserva.value.duracion;
+    const duracionMilisegundos = duracionHoras * 60 * 60 * 1000; // Convertir horas a milisegundos
+
+    // Añadir la duración a la hora de inicio para obtener la hora de fin
+    this.fechaHoraFin = new Date(this.fechaHoraInicio.getTime() + duracionMilisegundos);
+
     // Formatear la hora de fin en caso de necesitarlo
     console.log('Hora de fin:', this.fechaHoraFin);
-  }
+}
+
 
 
   constructor(private router: Router, private juegosService: JuegosService, 
@@ -66,10 +72,11 @@ export class FormularioMesaComponent {
     }
 
     this.reservasService.aniadirReserva(this.reserva);
-    console.log(this.reserva);
+    //console.log(this.reserva);
     /* console.log(this.fechaHoraInicio)
     console.log(this.fechaHoraFin)
     console.log(this.formReserva.value.duracion) */
+    this.router.navigate(['/index/mesa']);
   }
 
 }

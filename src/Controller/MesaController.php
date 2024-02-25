@@ -71,6 +71,61 @@ class MesaController extends AbstractController
         return $response;
     }
 
+/*     #[Route('/getMesas', name: 'getMesas', methods: ['GET'])]
+public function getMesas(MesaRepository $mesaRepository, EntityManagerInterface $entityManager): Response
+{   
+
+    // Obtener la fecha actual sin la parte de la hora
+    $fechaActual = date("Y-m-d");
+
+    // Obtener las mesas
+    $mesas = $mesaRepository->findAll();
+
+    // Obtener las mesas ocupadas para la fecha actual
+    $mesasOcupadas = $mesaRepository->mesasReservadas($fechaActual);
+
+    // Marcar las mesas según su disponibilidad
+    foreach ($mesas as $mesa) {
+        $ocupada = false;
+        foreach ($mesasOcupadas as $mesaOcupada) {
+            if ($mesa->getId() == $mesaOcupada->getId()) {
+                $ocupada = true;
+                break;
+            }
+        }
+
+        // Establecer el estado de disponibilidad de la mesa
+        $mesa->setDisponible(!$ocupada);
+
+        // Guardar los cambios en la base de datos
+        $entityManager->persist($mesa);
+    }
+
+    // Aplicar los cambios en la base de datos
+    $entityManager->flush();
+
+    // Preparar el array de mesas para la respuesta JSON
+    $mesasArray = [];
+    foreach ($mesas as $mesa) {
+        $mesasArray[] = [
+            'id' => $mesa->getId(),
+            'disponible' => $mesa->isDisponible(),
+            'tipomesa' => $mesa->getTipoMesa()->getId(),
+        ];
+    }
+
+    // Convertir el array de mesas a JSON
+    $jsonResponse = json_encode($mesasArray);
+
+    // Crear la respuesta HTTP
+    $response = new Response($jsonResponse, Response::HTTP_OK);
+    $response->headers->set('Content-Type', 'application/json');
+    
+    // Devolver la respuesta
+    return $response;
+} */
+
+
     #[Route('/new', name: 'app_mesa_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {

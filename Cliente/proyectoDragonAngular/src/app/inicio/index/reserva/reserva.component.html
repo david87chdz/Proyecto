@@ -19,9 +19,11 @@
                 Reserva: Pendiente
             }
         </h3>
-        @if(botonHabilitado(reserva.fecha_inicio) || reserva.anulada){
-            <button class="btn eliminar" (click)="cambiar(reserva.id_reserva)" routerLink="mesa">Anular</button>
-        }  
+        @if(!reserva.anulada){
+            @if(botonHabilitado(reserva.fecha_inicio)){
+                <button class="btn eliminar" (click)="cambiar(reserva.id_reserva)" routerLink="mesa">Anular</button>
+            } 
+        }
     </div>
  
 }

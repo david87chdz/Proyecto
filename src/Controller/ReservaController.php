@@ -133,7 +133,7 @@ class ReservaController extends AbstractController
     
         $id = $data['id'];
         
-        // Buscar la reserva por su ID
+        
         $reserva = $entityManager->getRepository(Reserva::class)->find($id);
     
         // Verificar si la reserva existe
@@ -144,17 +144,17 @@ class ReservaController extends AbstractController
         // Obtener el usuario asociado a la reserva
         $usuario = $reserva->getUsuario();
     
-        // Actualizar la puntuación del usuario
+        // Actualizar la puntuación 
         $puntuacion = $usuario->getPuntuacion();
         $usuario->setPuntuacion($puntuacion - 2);
         $entityManager->persist($usuario);
     
-        // Marcar la reserva como no completada
+        // Poner reserva anulada
         $reserva->setAnulada(1);
         $reserva->setCompletada(1);
         $entityManager->persist($reserva);
     
-        // Guardar los cambios en la base de datos
+       
         $entityManager->flush();
     
         // Devolver una respuesta JSON
