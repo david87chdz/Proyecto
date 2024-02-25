@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, RouterLink, RouterOutlet } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { BuscarJuegoComponent } from '../buscar-juego/buscar-juego.component';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { JuegosService } from '../../../../juegos.service';
@@ -24,7 +24,7 @@ export class ModificarJuegoComponent implements OnInit{
 
   juego!: any;
 
-  constructor(private route: ActivatedRoute, private juegosService: JuegosService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private juegosService: JuegosService) { }
 
   ngOnInit(): void {
     // Recoger el ID del juego de los parámetros de la ruta
@@ -41,5 +41,6 @@ export class ModificarJuegoComponent implements OnInit{
       max_jug: this.formJuego.value.max_jug
     }
     this.juegosService.modificarJuego(this.juego);
+    this.router.navigate(['index/perfil/buscar'])
   }
 }
