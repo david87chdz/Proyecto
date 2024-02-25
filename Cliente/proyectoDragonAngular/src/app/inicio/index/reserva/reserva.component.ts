@@ -52,4 +52,7 @@ export class ReservaComponent {
     this.reservasService.anularReserva(json);
   }
     
+
+
+
 }

@@ -1,0 +1,10 @@
+<button routerLink="">Añadir mesa</button>
+
+
+@for(mesa of mesas;track $index){
+    @if(mesa.disponible){ 
+        <div id="{{mesa.id}}" class="card tipo{{mesa.tipomesa}} verde" routerLink="../formularioMesa/{{mesa.id}}"></div>    
+    }@else{ 
+          <div id="{{mesa.id}}" class="card tipo{{mesa.tipomesa}} rojo" routerLink="../formularioMesa/{{mesa.id}}"></div>
+    }
+}

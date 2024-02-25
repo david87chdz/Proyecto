@@ -37,6 +37,6 @@ export class RegistroComponent {
 
     this.usuariosService.crearUsuario(this.usuario);
 
-    //this.router.navigate(['/index']);
+    this.router.navigate(['/index']);
   }
 }

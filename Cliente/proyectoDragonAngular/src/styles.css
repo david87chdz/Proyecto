@@ -1,6 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 body{
-    background: url(assets/images/pexels-raka-miftah-4253690.jpg) no-repeat ; 
+    background: url(assets/images/ciudadminimalista.jpg) no-repeat ; 
     background-size: cover;
-    min-height: 100lvh;
+   height: auto;
 }
+.pie{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+ 
+    text-align: center;
+    color: white;
+    
+}
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }

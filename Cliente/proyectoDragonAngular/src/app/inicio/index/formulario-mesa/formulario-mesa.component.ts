@@ -22,7 +22,7 @@ export class FormularioMesaComponent {
 
   formReserva= new FormGroup({
     juego: new FormControl(''),
-    
+    //fecha_inicio: new FormControl(),
     duracion: new FormControl(),
   })
   
@@ -31,15 +31,15 @@ export class FormularioMesaComponent {
     this.fecha = event.target.value;
     console.log('Fecha y hora seleccionada:', this.fecha);
     console.log(typeof(this.fecha));
-    // Convertir a objeto Date
+    // Convertir this.fecha a un objeto Date
     this.fechaHoraInicio = new Date(this.fecha);
     this.calcularHoraFin();
   }
 
   calcularHoraFin() {
-
+    // Asegúrate de que this.formReserva.value.duracion tenga el valor esperado en horas
     this.fechaHoraFin = new Date(this.fechaHoraInicio.getTime() + this.formReserva.value.duracion * 60 * 60 * 1000);
-    
+    // Formatear la hora de fin en caso de necesitarlo
     console.log('Hora de fin:', this.fechaHoraFin);
   }
 
@@ -66,10 +66,10 @@ export class FormularioMesaComponent {
     }
 
     this.reservasService.aniadirReserva(this.reserva);
-    //console.log(this.reserva);
-    
-   this.router.navigate(['../mesa']);
-  
+    console.log(this.reserva);
+    /* console.log(this.fechaHoraInicio)
+    console.log(this.fechaHoraFin)
+    console.log(this.formReserva.value.duracion) */
   }
 
 }

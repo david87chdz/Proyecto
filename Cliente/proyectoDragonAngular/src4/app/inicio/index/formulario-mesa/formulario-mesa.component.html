@@ -1,0 +1,30 @@
+<div class="contenidoreserva">
+
+
+    <div class="login-container">
+      <h1>Realizar una reserva</h1>
+      <form class="login-form" [formGroup]="formReserva" (submit)="enviar()">
+          <div>
+            <label for="juego">Juego:</label>
+            <select id="juego" name="juego" formControlName="juego">
+              @for(juego of juegos; track juego.id){
+                <option value="{{juego.id}}">{{juego.nombre}}</option>
+              }
+            </select>
+          </div>
+          <div>
+            <label for="hora_inicio" >Hora de inicio:</label>
+            <input type="datetime-local" [(ngModel)]="fecha" (change)="hora($event)">
+          </div>
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary">Duracion:
+              <input type="radio" name="options" id="option1" autocomplete="off" value="1" formControlName="duracion"> 1 Horas
+            </label>
+            <label class="btn btn-secondary">
+              <input type="radio" name="options" id="option2" autocomplete="off"  value="2" formControlName="duracion"> 2 Horas
+            </label>
+            </div>
+          <input type="submit" class="login-button" value="Enviar">
+        </form>
+      </div>
+    </div>

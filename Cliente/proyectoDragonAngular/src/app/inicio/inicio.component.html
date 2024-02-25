@@ -1,12 +1,5 @@
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+
     <header>
         <div class="logo">
                <img id="logospain" src="assets/images/spainskills.jpg" alt="Logo de Spain Skills">
@@ -20,7 +13,16 @@
       <div class="contenido">
           <img id="dragon" src="assets/images/continuar.png" alt="logo">
           <p><a>DRAGON SKILLS</a></p>
+          <div class="imagen-container">
+            @for(imagen of imagenes;track  $index){
+
+                <div class="card align-items-center" >
+                    <img src="{{imagen.imagen}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">{{imagen.nombre}}</h5>
+                    </div>
+                </div>
+          }
+          </div>
       </div>
     </main>
-</body>
-</html>

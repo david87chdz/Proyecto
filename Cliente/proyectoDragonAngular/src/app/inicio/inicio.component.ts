@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { AppComponent } from '../app.component';
+import { ImagenesService } from '../imagenes.service';
 
 @Component({
   selector: 'app-inicio',
@@ -12,10 +13,10 @@ import { AppComponent } from '../app.component';
 })
 export class InicioComponent {
 
-  constructor(private router: Router){
-
+  imagenes:any[]=[];
+  constructor(private router: Router, private imagenesService: ImagenesService){
+    this.imagenes=this.imagenesService.getImagenes();
   }
-
 
   irALogin(){
 

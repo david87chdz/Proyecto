@@ -1,0 +1,14 @@
+<label>Buscar juego: </label>  <br>
+<input type="text" [(ngModel)]="juego" style="margin-left: 15px; margin-top: 20px; width: 400px;">
+
+@for(juego of juegos;track $index){
+    <div class="card" style="width:500px;height: 200px; margin:3rem" >
+        <h1>{{juego.nombre}}</h1>
+        <img src="data:image/png;base64,{{juego.imagen}}" alt="">
+        @if(esAdmin()){
+            <button type="submit" class="btn " routerLink="../modificar/{{juego.id}}" >Modificar Juego</button>
+        }
+    </div>
+
+}
+

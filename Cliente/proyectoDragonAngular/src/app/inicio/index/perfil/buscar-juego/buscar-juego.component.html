@@ -1,8 +1,8 @@
 <label>Buscar juego: </label>  <br>
 <input type="text" [(ngModel)]="juego" style="margin-left: 15px; margin-top: 20px; width: 400px;">
-
+<div class="contenedor">
 @for(juego of juegos;track $index){
-    <div class="card" style="width:500px;height: 200px; margin:3rem" >
+    <div class="card">
         <h1>{{juego.nombre}}</h1>
         <img src="data:image/png;base64,{{juego.imagen}}" alt="">
         @if(esAdmin()){
@@ -12,3 +12,4 @@
 
 }
 
+</div>

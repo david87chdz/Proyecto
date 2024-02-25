@@ -1,7 +1,7 @@
 .pie{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background-color: rgb(212, 21, 21);
+    background: linear-gradient(to right, rgb(0, 0, 0), rgb(6, 5, 73)); 
     text-align: center;
     color: white;
-    
+    padding: 5px;
 }

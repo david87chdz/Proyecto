@@ -1,0 +1,14 @@
+<div>
+    <h1>Nickname: {{nombre}}</h1>
+    <h1>Puntuación: {{puntuacion}}</h1>
+    @if(esAdmin()){
+        <button   class="btn "  routerLink="agregar">Agregar Juego</button> <br>
+    }
+    <button  class="btn "   routerLink="buscar">Buscar juego</button>
+  
+</div>
+<div class="cont">
+    
+    <router-outlet></router-outlet>
+    
+</div>

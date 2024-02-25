@@ -17,6 +17,10 @@
     width: 350px;
     height: 200px;
 }
+.tipo3{
+  width: 500px;
+  height: 300px;
+}
 .verde:hover{
     background-image: linear-gradient(to right, green,rgb(25, 160, 25),rgb(74, 199, 74),green);
     animation:slidebg 2s linear infinite;
@@ -26,6 +30,11 @@
     background-image: linear-gradient(to right, red, orange,rgb(255, 102, 0), red);
   animation:slidebg 2s linear infinite;
  
+}
+.btn{
+  background-color: rgb(14, 209, 183);
+  margin: 5px;
+  color: rgb(0, 0, 0);
 }
  
 @keyframes slidebg {

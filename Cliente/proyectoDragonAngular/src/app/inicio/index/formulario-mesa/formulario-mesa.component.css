@@ -27,7 +27,8 @@ main{
     margin: 2px;
 }
 .login-container {
-    background-color: #d41b1b;
+    background-color: rgba(39, 252, 241, 0.658);
+    color: rgb(0, 0, 0);
     border: 0.5px solid rgb(255, 255, 255);
     border-radius: 8px;
     box-shadow: 2px 2px 5px rgb(255, 255, 255);
@@ -53,7 +54,7 @@ main{
 }
 
 .login-button:hover {
-    background-color: #e9661a;
+    background-color: #0b88ee;
     transform: scale(1.05);
     
 }

@@ -1,0 +1,26 @@
+@for(reserva of reservas; track $index){
+    <div class="card reserva">
+        <h1>Reserva nº {{reserva.id_reserva}}</h1>
+        
+        <h3>Inicio: {{reserva.fecha_inicio}}<br>
+            Fin: {{reserva.fecha_fin}}
+            Usuario: {{reserva.usuario}}
+            Mesa: {{reserva.mesa}}
+            Juego: {{reserva.juego}}
+            @if(reserva.estado){
+             Estado: Completada   
+            }@else{
+                Estado: Pendiente
+            }
+            @if(reserva.anulada){
+                Reserva: Anulada
+            }@else{
+                Reserva: Pendiente
+            }
+        </h3>
+        @if(botonHabilitado(reserva.fecha_inicio) || reserva.anulada){
+            <button class="btn eliminar" (click)="cambiar(reserva.id_reserva)" routerLink="mesa">Anular</button>
+        }  
+    </div>
+
+}

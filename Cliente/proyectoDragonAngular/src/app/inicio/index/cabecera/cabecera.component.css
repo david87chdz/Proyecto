@@ -1,13 +1,22 @@
 #logospain{
-    width:100px;
+    width:80px;
 }
 #logodrag{
     width: 50px;
 }
+@font-face {
+    font-family: 'PressStart';
+    font-style: normal;
+    font-weight: 100;
+    src: local('Press Start 2P'), local('PressStart2P-Regular'), url(http://themes.googleusercontent.com/static/fonts/pressstart2p/v2/8Lg6LX8-ntOHUQnvQ0E7o3dD2UuwsmbX3BOp4SL_VwM.woff) format('woff');
+  }
+.cabecera h2{
+    font-family: 'PressStart';
+}
 .cabecera{
     position: relative;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    background-color: rgb(212, 21, 21);
+    background: linear-gradient(to right, rgb(0, 0, 0), rgb(6, 5, 73)); 
     text-align: center;
     color: white;
  
@@ -15,15 +24,9 @@
 .cabecera button{
     text-decoration: none;
     color: white;
+    font-size: 20px;
 }
-.botonbarra{
-    border-top: 0.1px solid rgb(255, 255, 255);
-  
 
-}
-.botonbarra:nth-child(1){
-    border-right: 0.2px solid rgb(255, 255, 255);
-}
-.botonbarra:nth-child(2){
-    border-right: 0.2px solid rgb(255, 255, 255);
+.botonbarra:hover{
+    background-color: rgba(0, 150, 170, 0.938);
 }
