@@ -119,7 +119,7 @@ class ReservaController extends AbstractController
         if ($reserva->getId()) {
             //Añadimos puntuación
             $puntuacion = $usuario->getPuntuacion();
-            $usuario->setPuntuacion($puntuacion - 2);
+            $usuario->setPuntuacion($puntuacion + 1);
             $entityManager->persist($usuario);
             $entityManager->flush();
             $mensaje = 'La reserva se ha insertado correctamente.';
